@@ -1,3 +1,9 @@
+import HomePageSections from "@/components/homePage/HomePageSections";
+
 export default function Page() {
-  return <main>home</main>;
+  return (
+    <main>
+      <HomePageSections />
+    </main>
+  );
 }
