@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 
 const services = [
@@ -67,7 +68,7 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section className="w-full p-x-192 py-14 bg-white text-center">
+    <section className="w-full px-4 md:px-12 lg:px-24 py-14 bg-white text-center">
       {/* Heading */}
       <div className="mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
@@ -91,7 +92,7 @@ export default function OurServices() {
       </div>
 
       {/* Service Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-2 md:px-4">
         {services.map((service, index) => (
           <div
             key={index}
@@ -116,10 +117,17 @@ export default function OurServices() {
       </div>
 
       {/* Button */}
-      <div className="mt-10">
-        <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium px-8 py-3 rounded-full shadow-md transition">
+      <div className="mt-10 flex justify-center">
+        <Link
+          href="/estimate"
+          className="inline-block bg-[#E1B900] hover:bg-[#d4a900] text-white font-bold text-sm md:text-base px-10  py-3 transition-all duration-300 shadow-md"
+          style={{
+            clipPath:
+              "polygon(16px 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 16px 100%, 0% 50%)",
+          }}
+        >
           ALL SERVICES
-        </button>
+        </Link>
       </div>
     </section>
   );

@@ -20,10 +20,7 @@ export default function Banner() {
       <div className="flex flex-col justify-center p-8 lg:p-14 w-full lg:w-[45%]">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-snug">
           Toronto Handyman <br />
-          <span>
-            Professional Handyman Services
-          </span>{" "}
-          <br />
+          <span>Professional Handyman Services</span> <br />
           Across the Greater Toronto Area
         </h2>
 
@@ -33,12 +30,18 @@ export default function Banner() {
           service, attention to detail, and long-term value.
         </p>
 
-        <Link
-          href="#"
-          className="inline-block bg-yellow-400 text-black font-semibold px-6 py-3 rounded-md hover:bg-yellow-300 transition-all w-fit"
-        >
-          GET AN ESTIMATE
-        </Link>
+        <div>
+          <Link
+            href="/estimate"
+            className="hidden sm:inline-block bg-[#E1B900] hover:bg-[#d4a900] text-white font-bold text-xs sm:text-sm md:text-base px-6 sm:px-8 py-2.5 sm:py-3 relative transition-all duration-300"
+            style={{
+              clipPath:
+                "polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)",
+            }}
+          >
+            GET AN ESTIMATE
+          </Link>
+        </div>
       </div>
 
       {/* Right Section (Image Slider) */}
