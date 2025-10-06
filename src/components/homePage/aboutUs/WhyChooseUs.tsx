@@ -1,44 +1,44 @@
 "use client";
 
 import Image from "next/image";
-import { FileText, Cog, Award, Clock, Headphones, Tag, Play } from "lucide-react";
+import { Play } from "lucide-react";
 
 const features = [
   {
     title: "Skilled, Licensed Professionals",
     desc: "Each member of our team is a licensed professional with expertise in various trades. Our specialists deliver precise, high-quality results.",
-    icon: <FileText className="text-yellow-400 w-8 h-8" />,
+    icon: "/assets/handymanHomePage/whyChooseUsIcon1.png",
   },
   {
     title: "Comprehensive Service Range",
     desc: "We provide a full spectrum of services, from carpentry and plumbing to renovations and custom projects for residential and commercial needs.",
-    icon: <Cog className="text-yellow-400 w-8 h-8" />,
+    icon: "/assets/handymanHomePage/whyChooseUsIcon2.png",
   },
   {
     title: "Quality Workmanship",
     desc: "Our team commits to delivering results that enhance functionality and aesthetics, emphasizing quality and attention to detail.",
-    icon: <Award className="text-yellow-400 w-8 h-8" />,
+    icon: "/assets/handymanHomePage/whyChooseUsIcon3.png",
   },
   {
     title: "Timely and Reliable Service",
     desc: "Deadlines matter. We deliver on time and ensure quality work without delays or compromise.",
-    icon: <Clock className="text-yellow-400 w-8 h-8" />,
+    icon: "/assets/handymanHomePage/whyChooseUsIcon4.png",
   },
   {
     title: "Client-Centered Approach",
     desc: "Your satisfaction is our priority. We focus on understanding your needs and executing projects with care to ensure it’s right the first time.",
-    icon: <Headphones className="text-yellow-400 w-8 h-8" />,
+    icon: "/assets/handymanHomePage/whyChooseUsIcon5.png",
   },
   {
     title: "Competitive, Transparent Pricing",
     desc: "We provide top-tier service without exceeding your budget. Pricing is fair and transparent, ensuring the best value for your investment.",
-    icon: <Tag className="text-yellow-400 w-8 h-8" />,
+    icon: "/assets/handymanHomePage/whyChooseUsIcon6.png",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="w-full bg-gray-50 rounded-2xl overflow-hidden flex flex-col lg:flex-row">
+    <section className="w-full mt-10 bg-gray-50 rounded-2xl overflow-hidden flex flex-col lg:flex-row">
       {/* Left Image (20%) with Play Button */}
       <div className="relative order-2 sm:order-1 w-full lg:w-[20%] h-64 lg:h-auto">
         <Image
@@ -76,16 +76,31 @@ export default function WhyChooseUs() {
           </svg>
         </h2>
 
+        {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((item, idx) => (
             <div
               key={idx}
-              className="flex items-start gap-3 p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all"
+              className="flex justify-between items-start p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all"
             >
-              <div>{item.icon}</div>
-              <div>
-                <h3 className="font-semibold text-gray-800 mb-1">{item.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+              {/* Text Section */}
+              <div className="flex-1 pr-1">
+                <h3 className="font-bold text-lg text-[#DFBC00] mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+
+              {/* Icon on Right */}
+              <div className="relative w-14 h-14 flex-shrink-0">
+                <Image
+                  src={item.icon}
+                  alt={item.title}
+                  fill
+                  className="object-contain"
+                />
               </div>
             </div>
           ))}
