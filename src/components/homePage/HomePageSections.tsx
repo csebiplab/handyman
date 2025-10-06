@@ -1,3 +1,4 @@
+import AddRating from "./addRating/AddRating";
 import Banner from "./bannerSection/Banner";
 
 export default function HomePageSections() {
@@ -5,6 +6,9 @@ export default function HomePageSections() {
     <main>
       <section className="p-x-192 mt-2">
         <Banner />
+      </section>
+      <section>
+        <AddRating />
       </section>
     </main>
   );
