@@ -2,6 +2,7 @@ import AboutUs from "./aboutUs/AboutUs";
 import WhyChooseUs from "./aboutUs/WhyChooseUs";
 import AddRating from "./addRating/AddRating";
 import Banner from "./bannerSection/Banner";
+import CommercialServices from "./commercialServices/CommercialServices";
 import OurServices from "./ourServices/OurServices";
 
 export default function HomePageSections() {
@@ -21,6 +22,9 @@ export default function HomePageSections() {
       </section>
       <section>
         <OurServices />
+      </section>
+      <section className=" p-x-192">
+        <CommercialServices />
       </section>
     </main>
   );

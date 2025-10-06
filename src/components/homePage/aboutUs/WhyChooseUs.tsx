@@ -93,7 +93,7 @@ export default function WhyChooseUs() {
                 </p>
               </div>
 
-              {/* Icon on Right */}
+              {/* Icon */}
               <div className="relative w-14 h-14 flex-shrink-0">
                 <Image
                   src={item.icon}

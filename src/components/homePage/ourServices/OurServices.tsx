@@ -1,79 +1,67 @@
 "use client";
 
-import {
-  Hammer,
-  Paintbrush,
-  Wrench,
-  Home,
-  Plug,
-  Layers,
-  Ruler,
-  Settings,
-  Shield,
-  Cog,
-  Grid,
-} from "lucide-react";
+import Image from "next/image";
 
 const services = [
   {
     title: "Carpentry & Woodwork",
     desc: "We specialize in decks, fences, pergolas, gazebos, stairs, railings, and framing.",
-    icon: <Hammer className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon1.png",
   },
   {
     title: "Drywall & Finishing",
     desc: "We handle drywall installation, taping, mudding, sanding, priming, & painting.",
-    icon: <Layers className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon2.png",
   },
   {
     title: "Flooring Installation",
     desc: "We install vinyl, laminate, engineered hardwood, and tile flooring.",
-    icon: <Ruler className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon3.png",
   },
   {
     title: "Painting",
     desc: "We provide interior & exterior painting services, including trims & baseboards.",
-    icon: <Paintbrush className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon4.png",
   },
   {
     title: "Plumbing",
     desc: "We install fixtures, repair pipes, handle drain work, and provide water line.",
-    icon: <Wrench className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon5.png",
   },
   {
     title: "Electrical (Minor Work)",
     desc: "We install light fixtures, outlets, and switches within our licensed scope.",
-    icon: <Plug className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon6.png",
   },
   {
     title: "Full Renovation",
     desc: "We manage home & condo renovations, basement finishing & kitchen upgrades.",
-    icon: <Home className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon7.png",
   },
   {
     title: "Exterior Works",
     desc: "We construct decks, retaining walls, and siding. We also install exterior trims.",
-    icon: <Shield className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon8.png",
   },
   {
     title: "Welding & Fabrication",
     desc: "We offer custom steel and aluminum welding services and metal fabrication.",
-    icon: <Settings className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon9.png",
   },
   {
     title: "Lathe & Machining",
     desc: "We create custom parts, fittings, and precision metalwork.",
-    icon: <Cog className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon10.png",
   },
   {
     title: "Repairs & Maintenance",
     desc: "We manage home & condo renovations, basement finishing, kitchen upgrades.",
-    icon: <Wrench className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon11.png",
   },
   {
     title: "Custom Projects",
     desc: "We build accent walls, shelving, and assemble furniture tailored to your needs.",
-    icon: <Grid className="w-8 h-8 text-yellow-400" />,
+    icon: "/assets/handymanHomePage/ourServicesIcon12.png",
   },
 ];
 
@@ -86,21 +74,20 @@ export default function OurServices() {
           Our Services
         </h2>
         <div className="relative w-64 max-w-3xl mx-auto mt-3">
-  <svg
-    viewBox="0 0 500 40"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-full h-6"
-  >
-    <path
-      d="M0 35C125 0 375 0 500 35"
-      stroke="#FACC15"
-      strokeWidth="4"
-      strokeLinecap="round"
-      fill="none"
-    />
-  </svg>
-</div>
-
+          <svg
+            viewBox="0 0 500 40"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-6"
+          >
+            <path
+              d="M0 35C125 0 375 0 500 35"
+              stroke="#FACC15"
+              strokeWidth="4"
+              strokeLinecap="round"
+              fill="none"
+            />
+          </svg>
+        </div>
       </div>
 
       {/* Service Cards Grid */}
@@ -110,7 +97,14 @@ export default function OurServices() {
             key={index}
             className="border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-6 bg-white flex flex-col items-start text-left"
           >
-            <div className="mb-4">{service.icon}</div>
+            <div className="mb-4 w-12 h-12 relative">
+              <Image
+                src={service.icon}
+                alt={service.title}
+                fill
+                className="object-contain"
+              />
+            </div>
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               {service.title}
             </h3>
