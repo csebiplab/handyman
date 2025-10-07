@@ -62,3 +62,47 @@ body {
   -ms-overflow-style: none; /* IE/Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* gallery Images */
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 8 - 1rem * 8));
+  }
+}
+
+@keyframes infinite-scroll-sm {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-300px * 8 - 1rem * 8));
+  }
+}
+
+@keyframes infinite-scroll-md {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-350px * 8 - 1rem * 8));
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 40s linear infinite;
+}
+
+@media (min-width: 640px) {
+  .animate-infinite-scroll {
+    animation-name: infinite-scroll-sm;
+  }
+}
+
+@media (min-width: 768px) {
+  .animate-infinite-scroll {
+    animation-name: infinite-scroll-md;
+  }
+}

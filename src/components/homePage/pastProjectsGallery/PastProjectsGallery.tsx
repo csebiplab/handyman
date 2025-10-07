@@ -2,11 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, FreeMode } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/free-mode";
-import { Play } from "lucide-react";
 
 const PastProjectsGallery = () => {
   const galleryImages = [
@@ -21,16 +16,16 @@ const PastProjectsGallery = () => {
   ];
 
   return (
-    <section className="w-full py-10 bg-white">
+    <section className="w-full py-10 bg-white overflow-hidden">
       {/* Section Title */}
-      <div className="mb-6">
+      <div className="text-center mb-6">
         <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-2">
           Our Past Projects Gallery
         </h2>
         <svg
           viewBox="0 0 200 40"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-40 h-6"
+          className="w-40 h-6 mx-auto"
         >
           <path
             d="M0 30 Q100 10 200 30"
@@ -51,53 +46,26 @@ const PastProjectsGallery = () => {
           height={300}
           className="object-cover w-full h-[150px] sm:h-[250px] md:h-[300px]"
         />
-
-        {/* Overlay */}
-        {/* <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white">
-          <button className="flex flex-col items-center">
-            <div className="bg-white/90 rounded-full p-4 mb-2">
-              <Play size={28} className="text-black" />
-            </div>
-            <span className="text-sm md:text-base font-medium">Play Now</span>
-          </button>
-        </div> */}
       </div>
 
-      {/* Continuous Moving Image Slider */}
-      <div className="w-full mt-6">
-        <Swiper
-          modules={[Autoplay, FreeMode]}
-          freeMode={true}
-          loop={true}
-          slidesPerView={2.2}
-          spaceBetween={20}
-          speed={3000} // slow, smooth continuous motion
-          autoplay={{
-            delay: 0,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-          }}
-          allowTouchMove={false}
-          breakpoints={{
-            640: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-          }}
-          className="cursor-default"
-        >
-          {galleryImages.map((img, idx) => (
-            <SwiperSlide key={idx}>
-              <div className="rounded-xl overflow-hidden shadow-md">
-                <Image
-                  src={img}
-                  alt={`Gallery image ${idx + 1}`}
-                  width={400}
-                  height={300}
-                  className="w-full h-[220px] object-cover"
-                />
-              </div>
-            </SwiperSlide>
+      {/* Pure CSS Infinite Scroll - No pauses, completely seamless */}
+      <div className="relative mt-10 overflow-hidden">
+        <div className="flex animate-infinite-scroll">
+          {[...galleryImages, ...galleryImages, ...galleryImages].map((img, idx) => (
+            <div
+              key={idx}
+              className="flex-shrink-0 w-[250px] sm:w-[300px] md:w-[350px] mx-4 rounded-xl overflow-hidden shadow-md"
+            >
+              <Image
+                src={img}
+                alt={`Gallery image ${(idx % galleryImages.length) + 1}`}
+                width={400}
+                height={300}
+                className="w-full h-[180px] sm:h-[200px] md:h-[220px] object-cover"
+              />
+            </div>
           ))}
-        </Swiper>
+        </div>
       </div>
     </section>
   );
