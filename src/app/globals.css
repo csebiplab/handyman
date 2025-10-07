@@ -64,45 +64,49 @@ body {
 }
 
 /* gallery Images */
+/* Infinite scroll animation */
 @keyframes infinite-scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 8 - 1rem * 8));
+    transform: translateX(calc(-250px * 8 - 4rem * 8));
   }
 }
 
-@keyframes infinite-scroll-sm {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-300px * 8 - 1rem * 8));
-  }
-}
-
-@keyframes infinite-scroll-md {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-350px * 8 - 1rem * 8));
-  }
-}
-
-.animate-infinite-scroll {
+.infinite-scroll-animation {
   animation: infinite-scroll 40s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000;
 }
 
+/* Hover pause effect */
+.hover-pause:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive styles for different screen sizes */
 @media (min-width: 640px) {
-  .animate-infinite-scroll {
-    animation-name: infinite-scroll-sm;
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-300px * 8 - 4rem * 8));
+    }
   }
 }
 
 @media (min-width: 768px) {
-  .animate-infinite-scroll {
-    animation-name: infinite-scroll-md;
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-350px * 8 - 4rem * 8));
+    }
   }
 }

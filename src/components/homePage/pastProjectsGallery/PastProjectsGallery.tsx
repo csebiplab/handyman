@@ -48,20 +48,20 @@ const PastProjectsGallery = () => {
         />
       </div>
 
-      {/* Pure CSS Infinite Scroll - No pauses, completely seamless */}
+      {/* Pure CSS Infinite Scroll - Pauses on hover */}
       <div className="relative mt-10 overflow-hidden">
-        <div className="flex animate-infinite-scroll">
+        <div className="flex infinite-scroll-animation hover-pause">
           {[...galleryImages, ...galleryImages, ...galleryImages].map((img, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 w-[250px] sm:w-[300px] md:w-[350px] mx-4 rounded-xl overflow-hidden shadow-md"
+              className="flex-shrink-0 w-[250px] sm:w-[300px] md:w-[350px] mx-4 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <Image
                 src={img}
                 alt={`Gallery image ${(idx % galleryImages.length) + 1}`}
                 width={400}
                 height={300}
-                className="w-full h-[180px] sm:h-[200px] md:h-[220px] object-cover"
+                className="w-full h-[180px] sm:h-[200px] md:h-[220px] object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
           ))}
