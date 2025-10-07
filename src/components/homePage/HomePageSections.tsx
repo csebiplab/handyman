@@ -3,6 +3,7 @@ import WhyChooseUs from "./aboutUs/WhyChooseUs";
 import AddRating from "./addRating/AddRating";
 import Banner from "./bannerSection/Banner";
 import CommercialServices from "./commercialServices/CommercialServices";
+import OurClientSaying from "./ourClientSaying/OurClientSaying";
 import OurServices from "./ourServices/OurServices";
 import PastProjectsGallery from "./pastProjectsGallery/PastProjectsGallery";
 import ReadyToWorkSection from "./readyToWorkSection/ReadyToWorkSection";
@@ -33,6 +34,9 @@ export default function HomePageSections() {
       </section>
       <section className=" p-x-192">
         <ReadyToWorkSection />
+      </section>
+      <section className=" p-x-192">
+        <OurClientSaying />
       </section>
     </main>
   );
