@@ -5,6 +5,7 @@ import Banner from "./bannerSection/Banner";
 import CommercialServices from "./commercialServices/CommercialServices";
 import OurServices from "./ourServices/OurServices";
 import PastProjectsGallery from "./pastProjectsGallery/PastProjectsGallery";
+import ReadyToWorkSection from "./readyToWorkSection/ReadyToWorkSection";
 
 export default function HomePageSections() {
   return (
@@ -29,6 +30,9 @@ export default function HomePageSections() {
       </section>
       <section className=" p-x-192">
         <PastProjectsGallery />
+      </section>
+      <section className=" p-x-192">
+        <ReadyToWorkSection />
       </section>
     </main>
   );
