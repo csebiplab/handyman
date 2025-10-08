@@ -94,7 +94,7 @@ const Footer = () => {
             {/* Column 2: Services in 3-column grid */}
             <div className="col-span-1 sm:col-span-2 lg:col-span-2">
               <h3 className="text-lg font-semibold mb-4">Services</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm text-gray-300">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-3 text-sm text-gray-300">
                 {services.map((service, i) => (
                   <div
                     key={i}
@@ -133,15 +133,29 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <div className="block sm:hidden pb-5">
+          <p className="mb-3 md:mb-0 text-center">© All Copyright 2025 by Handyman</p>
+          <div className="flex justify-center gap-4">
+            <Link href="/terms" className="hover:text-green-500 transition-all">
+              Terms & Condition
+            </Link>
+            <Link
+              href="/privacy"
+              className="hover:text-green-500 transition-all"
+            >
+              Privacy Policy
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* Divider line */}
       <div className="border-t border-gray-700" />
 
       {/* 🔹 Bottom Section without Background */}
-      <div className="p-x-192 py-6 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-400 bg-black">
+      <div className="p-x-192 py-1 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-400 bg-black">
         <div className="flex items-center space-x-2 mb-3 md:mb-0">
-          <p>WEBSITE DESIGN AND SEO BY :-</p>
+          <p className="font-bold text-white">WEBSITE DESIGN AND SEO BY :-</p>
           <Image
             src="/assets/handymanHomePage/gokundulogo.png"
             alt="GoKundu Logo"
@@ -150,8 +164,8 @@ const Footer = () => {
             className="w-[100px] h-auto brightness-0 invert"
           />
         </div>
-        <p className="mb-3 md:mb-0">© All Copyright 2025 by Handyman</p>
-        <div className="flex gap-4">
+        <p className="mb-3 md:mb-0 hidden md:block">© All Copyright 2025 by Handyman</p>
+        <div className="hidden md:flex gap-4">
           <Link href="/terms" className="hover:text-green-500 transition-all">
             Terms & Condition
           </Link>
