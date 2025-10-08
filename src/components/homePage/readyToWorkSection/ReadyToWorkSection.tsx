@@ -31,16 +31,22 @@ export default function ReadyToWorkSection() {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-10 mb-3">
+        <div className="flex flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-10 mb-3">
           <Link
             href="tel:+16476834612"
-            className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium py-3 px-6 rounded-md shadow transition duration-300 text-center"
+            className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium 
+               py-2.5 px-4 sm:py-3 sm:px-6 
+               text-sm sm:text-base 
+               rounded-md shadow transition duration-300 text-center"
           >
             CALL US TODAY
           </Link>
           <Link
             href="/contact"
-            className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium py-3 px-6 rounded-md shadow transition duration-300 text-center"
+            className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium 
+               py-2.5 px-4 sm:py-3 sm:px-6 
+               text-sm sm:text-base 
+               rounded-md shadow transition duration-300 text-center"
           >
             GET AN ESTIMATE
           </Link>

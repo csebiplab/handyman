@@ -48,10 +48,22 @@ const OurClientSaying = () => {
     <div className="bg-white mt-[100px] pl-6 md:pl-0">
       <div className="container pt-5">
         <div className="text-center pb-6">
-          <h2 className="text-[25px] md:text-[28px] lg:text-[32px] font-bold text-gray-900">
+          <h2 className="text-[20px] md:text-[28px] lg:text-[32px] font-bold text-gray-900">
             What Our Clients Are Saying
           </h2>
-          <div className="w-20 h-[3px] bg-yellow-400 mx-auto mt-2 rounded-full" />
+          <svg
+            viewBox="0 0 144 10"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-36 mx-auto mt-2"
+          >
+            <path
+              d="M0 8C48 2 96 2 144 8"
+              stroke="#FACC15"
+              strokeWidth="3"
+              strokeLinecap="round"
+              fill="none"
+            />
+          </svg>
         </div>
 
         {/* Swiper Slider */}
@@ -73,7 +85,7 @@ const OurClientSaying = () => {
           {[...reviews, ...reviews].map((slideInfo, index) => (
             <SwiperSlide
               key={index}
-              className="transition-all duration-500 flex justify-center items-center mt-5"
+              className="transition-all duration-500 flex justify-center items-center mt-5 px-2 md:px-0"
             >
               <div
                 className={`rounded-2xl border border-gray-200 bg-gray-50 shadow-sm transition-all duration-500 ${

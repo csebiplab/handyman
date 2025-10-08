@@ -18,7 +18,7 @@ const PastProjectsGallery = () => {
   return (
     <section className="w-full py-10 bg-white overflow-hidden">
       {/* Section Title */}
-      <div className="text-center mb-6">
+      <div className="md:text-center mb-6">
         <h2 className="text-2xl md:text-3xl font-bold text-[#1a1a2e] mb-2">
           Our Past Projects Gallery
         </h2>

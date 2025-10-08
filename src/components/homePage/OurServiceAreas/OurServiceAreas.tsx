@@ -80,7 +80,7 @@ const OurServiceAreas = ({ classNames }: { classNames?: any }) => {
 
         {/* ======= Map Cards ======= */}
         <Swiper
-          modules={[Navigation, Autoplay]}
+          modules={[ Autoplay]}
           loop={true}
           autoplay={{
             delay: 3000,
@@ -126,10 +126,6 @@ const OurServiceAreas = ({ classNames }: { classNames?: any }) => {
               </div>
             </SwiperSlide>
           ))}
-
-          <div className="block lg:hidden">
-            <SwiperButton />
-          </div>
         </Swiper>
       </div>
     </div>
