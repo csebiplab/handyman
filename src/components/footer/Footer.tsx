@@ -24,9 +24,9 @@ const Footer = () => {
     "Full Renovation",
     "Exterior Works",
     "Welding & Fabrication",
+    "Lathe & Machining",
+    "Repairs & Maintenance",
     "Custom Projects",
-    "Tile Installation",
-    "Door & Window Repair",
   ];
 
   const socialLinks = [
@@ -68,7 +68,7 @@ const Footer = () => {
 
         {/* Top content */}
         <div className="p-x-192 py-12 md:py-16">
-          <div className="inline-flex items-center bg-white text-black font-semibold rounded-md px-5 py-3 mb-5 hover:bg-green-500 hover:text-white transition-all duration-300 cursor-pointer">
+          <div className="inline-flex items-center bg-white text-black font-semibold rounded-md px-5 py-3 mb-5 hover:bg-yellow-500 hover:text-white transition-all duration-300 cursor-pointer">
             <FaPhoneAlt className="mr-2" /> (647) 326-9185
           </div>
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -98,7 +98,7 @@ const Footer = () => {
                 {services.map((service, i) => (
                   <div
                     key={i}
-                    className="hover:text-green-500 transition-colors cursor-pointer"
+                    className="hover:text-yellow-500 transition-colors cursor-pointer"
                   >
                     {service}
                   </div>
