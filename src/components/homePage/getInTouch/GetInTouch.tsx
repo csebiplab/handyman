@@ -39,7 +39,7 @@ export default function GetInTouch() {
                 Contact us today for a free estimate on your project
               </p>
 
-              <div className="space-y-4 text-sm pl-6">
+              <div className="space-y-4 text-sm md:pl-6">
                 {/* Email */}
                 <div className="flex items-start gap-3">
                   <Mail className="text-yellow-500 mt-[2px]" size={18} />

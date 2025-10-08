@@ -17,8 +17,8 @@ export default function Banner() {
   return (
     <section className="flex flex-col lg:flex-row items-stretch bg-black text-white rounded-xl overflow-hidden">
       {/* Left Section (Text) */}
-      <div className="flex flex-col justify-center p-8 lg:p-14 w-full lg:w-[45%]">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4 leading-snug">
+      <div className="flex flex-col justify-center p-4 lg:p-14 w-full lg:w-[45%] order-2 md:order-1">
+        <h2 className="text-lg sm:text-2xl lg:text-4xl font-bold mb-4 leading-snug">
           Toronto Handyman <br />
           <span>Professional Handyman Services</span> <br />
           Across the Greater Toronto Area
@@ -45,7 +45,7 @@ export default function Banner() {
       </div>
 
       {/* Right Section (Image Slider) */}
-      <div className="w-full lg:w-[55%]">
+      <div className="w-full lg:w-[55%] order-1 md:order-2">
         <Swiper
           modules={[Autoplay, EffectFade]}
           autoplay={{ delay: 3000, disableOnInteraction: false }}

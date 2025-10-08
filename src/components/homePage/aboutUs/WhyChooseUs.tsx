@@ -81,26 +81,24 @@ export default function WhyChooseUs() {
           {features.map((item, idx) => (
             <div
               key={idx}
-              className="flex justify-between items-start p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all"
+              className="flex flex-col sm:flex-row-reverse items-center sm:items-start text-center sm:text-left p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all"
             >
-              {/* Text Section */}
-              <div className="flex-1 pr-1">
-                <h3 className="font-bold text-lg text-[#DFBC00] mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-
               {/* Icon */}
-              <div className="relative w-14 h-14 flex-shrink-0">
+              <div className="relative w-14 h-14 mb-3 sm:mb-0 sm:ml-4 flex-shrink-0">
                 <Image
                   src={item.icon}
                   alt={item.title}
                   fill
                   className="object-contain"
                 />
+              </div>
+
+              {/* Text Section */}
+              <div>
+                <h3 className="font-bold text-lg text-[#DFBC00] mb-1">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))}

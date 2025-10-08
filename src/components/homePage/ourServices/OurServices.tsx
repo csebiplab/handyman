@@ -68,7 +68,7 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section className="w-full px-4 md:px-12 lg:px-24 py-14 bg-white text-center">
+    <section className="w-full py-14 bg-white text-center">
       {/* Heading */}
       <div className="mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
@@ -117,7 +117,7 @@ export default function OurServices() {
       </div>
 
       {/* Button */}
-      <div className="mt-10 flex justify-center">
+      <div className="mt-10 flex justify-start md:justify-center">
         <Link
           href="/estimate"
           className="inline-block bg-[#E1B900] hover:bg-[#d4a900] text-white font-bold text-sm md:text-base px-10  py-3 transition-all duration-300 shadow-md"

@@ -1,3 +1,4 @@
+import Map from "../common/Map";
 import AboutUs from "./aboutUs/AboutUs";
 import WhyChooseUs from "./aboutUs/WhyChooseUs";
 import AddRating from "./addRating/AddRating";
@@ -16,7 +17,7 @@ export default function HomePageSections() {
       <section className="p-x-192 mt-2">
         <Banner />
       </section>
-      <section>
+      <section className="p-x-192">
         <AddRating />
       </section>
       <section className="p-x-192 mt-2">
@@ -25,7 +26,7 @@ export default function HomePageSections() {
       <section>
         <WhyChooseUs />
       </section>
-      <section>
+      <section className="p-x-192">
         <OurServices />
       </section>
       <section className=" p-x-192">
@@ -45,6 +46,9 @@ export default function HomePageSections() {
       </section>
       <section className=" p-x-192">
         <GetInTouch />
+      </section>
+      <section>
+        <Map />
       </section>
     </main>
   );
