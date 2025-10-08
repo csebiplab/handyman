@@ -14,7 +14,7 @@ interface RatingCardProps {
 
 const RatingCard: React.FC<RatingCardProps> = ({ icon, platform, rating, reviews }) => {
   return (
-    <div className="flex justify-between items-center bg-white shadow-sm rounded-2xl px-8 py-5 w-full max-w-[500px] transition-all hover:shadow-md">
+    <div className="flex justify-between items-center bg-[#F4F4F4] shadow-sm rounded-2xl px-8 py-5 w-full max-w-[480px] transition-all hover:shadow-md">
       {/* Left Section */}
       <div className="flex items-start gap-3">
         <div className="text-3xl">{icon}</div>

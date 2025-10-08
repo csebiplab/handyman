@@ -62,3 +62,51 @@ body {
   -ms-overflow-style: none; /* IE/Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* gallery Images */
+/* Infinite scroll animation */
+@keyframes infinite-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 8 - 4rem * 8));
+  }
+}
+
+.infinite-scroll-animation {
+  animation: infinite-scroll 40s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+/* Hover pause effect */
+.hover-pause:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive styles for different screen sizes */
+@media (min-width: 640px) {
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-300px * 8 - 4rem * 8));
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-350px * 8 - 4rem * 8));
+    }
+  }
+}

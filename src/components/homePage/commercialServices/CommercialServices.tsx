@@ -8,7 +8,7 @@ export default function CommercialServices() {
     <section className="relative w-full bg-gray-100 rounded-lg overflow-hidden pt-10 text-center">
       {/* Heading */}
       <div className="px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+        <h2 className="text-2xl md:text-4xl font-bold text-gray-800">
           Commercial Services
         </h2>
 
