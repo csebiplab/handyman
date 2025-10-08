@@ -107,8 +107,8 @@ export default function CommonContactForm() {
     formState: { errors },
   } = useForm<FormData>();
 
-  const onSubmit = (data: FormData) => {
-    mailSendHandler(data, reset, setIsLoading, toast);
+  const onSubmit = (data: any) => {
+    mailSendHandler({ data, reset, setIsLoading, toast });
   };
 
   const renderField = (field: FormField) => {
@@ -178,37 +178,36 @@ export default function CommonContactForm() {
   };
 
   return (
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        {/* Row 1 (3 fields) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {contactFormFields.row1.map(renderField)}
+        </div>
 
-      <div>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          {/* Row 1 (3 fields) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {contactFormFields.row1.map(renderField)}
-          </div>
+        {/* Row 2 (2 fields) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {contactFormFields.row2.map(renderField)}
+        </div>
 
-          {/* Row 2 (2 fields) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {contactFormFields.row2.map(renderField)}
-          </div>
+        {/* Row 3 (textarea) */}
+        {contactFormFields.row3.map(renderField)}
 
-          {/* Row 3 (textarea) */}
-          {contactFormFields.row3.map(renderField)}
+        {/* Row 4 (radios) */}
+        {contactFormFields.row4.map(renderField)}
 
-          {/* Row 4 (radios) */}
-          {contactFormFields.row4.map(renderField)}
-
-          {/* Submit button */}
-          <div>
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full bg-[#DFBC00] text-white font-semibold py-3 rounded-md
+        {/* Submit button */}
+        <div>
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full bg-[#DFBC00] text-white font-semibold py-3 rounded-md
               hover:bg-[#cda700] transition disabled:opacity-70"
-            >
-              {isLoading ? "Submitting..." : "Submit"}
-            </button>
-          </div>
-        </form>
-      </div>
+          >
+            {isLoading ? "Submitting..." : "Submit"}
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }

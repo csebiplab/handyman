@@ -1,19 +1,19 @@
-import { Toast } from "@/types/toast";
+import { toast } from "react-toastify";
 
 // Define the form data interface
-interface FormData {
-  name: string;
-  email: string;
-  communication: string;
-  phone: string;
-  address: string;
-  message: string;
-  timeframe: string;
-}
+// interface FormData {
+//   name: string;
+//   email: string;
+//   communication: string;
+//   phone: string;
+//   address: string;
+//   message: string;
+//   timeframe: string;
+// }
 
 // Define the function parameters interface
 interface MailSendHandlerParams {
-  data: FormData;
+  data: any;
   reset: () => void;
   setIsLoading: (loading: boolean) => void;
   toast: {
@@ -28,7 +28,7 @@ export const mailSendHandler = async ({
   reset,
   setIsLoading,
   toast,
-  onClose
+  onClose,
 }: MailSendHandlerParams): Promise<void> => {
   const emailTemplate = `
     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -41,8 +41,8 @@ export const mailSendHandler = async ({
       <p><strong>TimeFrame:</strong> ${data?.timeframe}</p>
     </div>
   `;
-  
-  console.log("Email Template:", emailTemplate, data); // Debugging line
+
+  // console.log("Email Template:", emailTemplate, data); // Debugging line
 
   const payload = {
     projectFor:
