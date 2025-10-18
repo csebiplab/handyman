@@ -14,27 +14,46 @@ export default function TopNavbar() {
         </span>
       </div>
 
-      {/* Center Navigation (shifted right with gap-16) */}
-      <nav className="hidden md:flex flex-grow justify-end md:gap-10 lg:gap-16 3xl:gap-20 text-gray-800 font-medium mr-8">
+      {/* Center Navigation */}
+      <nav className="hidden md:flex flex-grow justify-end md:gap-10 lg:gap-16 3xl:gap-20 text-gray-800 font-medium mr-8 relative">
         <Link href="/about" className="hover:text-yellow-600 transition">
           About
         </Link>
 
+        {/* Services Dropdown */}
         <div className="relative group">
-          <Link
-            href="/services"
-            className="hover:text-yellow-600 transition flex items-center gap-1"
+          <button
+            className="hover:text-yellow-600 transition flex items-center gap-1 focus:outline-none"
           >
             Services
             <span className="text-xs">▼</span>
-          </Link>
-          {/* Optional dropdown */}
-          {/* <div className="absolute hidden group-hover:block bg-white shadow-md p-2 rounded-md mt-2">
-            <Link href="/services/carpentry" className="block px-3 py-1 hover:bg-gray-100">
-              Carpentry
+          </button>
+
+          {/* Dropdown Menu */}
+          {/* <div className="absolute hidden group-hover:block bg-white shadow-md rounded-md mt-2 min-w-[180px] border border-gray-100 z-50">
+            <Link
+              href="/services/home-repair"
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+            >
+              Home Repair
             </Link>
-            <Link href="/services/painting" className="block px-3 py-1 hover:bg-gray-100">
+            <Link
+              href="/services/painting"
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+            >
               Painting
+            </Link>
+            <Link
+              href="/services/plumbing"
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+            >
+              Plumbing
+            </Link>
+            <Link
+              href="/services/carpentry"
+              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+            >
+              Carpentry
             </Link>
           </div> */}
         </div>

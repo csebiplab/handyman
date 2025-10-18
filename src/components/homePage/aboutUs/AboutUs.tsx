@@ -31,7 +31,7 @@ export default function AboutUs() {
       {/* Content Container */}
       <div className="relative z-10 flex items-center justify-end min-h-[340px]">
         {/* Text Block with Full Blur */}
-        <div className="w-full lg:w-[55%] flex items-center backdrop-blur-md rounded-l-2xl shadow-lg">
+        <div className="w-full lg:w-[55%] flex items-center">
           <div className="p-6 md:p-10 lg:p-16 text-gray-800">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
               About Us

@@ -35,6 +35,9 @@ const features = [
     icon: "/assets/handymanHomePage/whyChooseUsIcon6.png",
   },
 ];
+const video = {
+  src: "/Videos/WhatsApp Video 2025-09-20 at 5.50.53 PM.mp4",
+}
 
 export default function WhyChooseUs() {
   return (
