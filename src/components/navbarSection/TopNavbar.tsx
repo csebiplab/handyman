@@ -73,7 +73,7 @@ export default function TopNavbar() {
       <div className="hidden md:flex items-center gap-4">
         <div className="h-6 w-px bg-gray-300" />
         <Link
-          href="#"
+          href="https://www.facebook.com/share/1CURMHqadu/?mibextid=wwXIfr"
           className="w-7 h-7 border border-gray-400 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"
         >
           <Facebook className="w-4 h-4" />
@@ -85,7 +85,7 @@ export default function TopNavbar() {
           <Instagram className="w-4 h-4" />
         </Link>
         <Link
-          href="#"
+          href="https://maps.app.goo.gl/1vziReSzQt4oNK5p8?g_st=ipc"
           className="w-7 h-7 border border-gray-400 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"
         >
           <MapPin className="w-4 h-4" />
