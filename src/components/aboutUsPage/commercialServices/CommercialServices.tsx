@@ -2,33 +2,39 @@ import GetAnEstimateButton from "@/components/common/form/GetAnEstimateButton";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ReadyToWorkSection() {
+export default function CommercialServices() {
   return (
-    <section className="relative bg-gray-100 pt-16 text-center">
+    <section className="relative pt-16 text-center">
       {/* Content Container */}
-      <div className="container mx-auto px-4">
+      <div className=" px-4">
         {/* Heading */}
         <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800">
-          Ready to work together?
+          Commercial Services: Support, Service, Solutions
         </h2>
         <svg
-          viewBox="0 0 200 40"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-40 h-6 mx-auto mb-4"
-        >
-          <path
-            d="M0 30 Q100 10 200 30"
-            stroke="#FACC15"
-            strokeWidth="4"
-            strokeLinecap="round"
-            fill="none"
-          />
-        </svg>
+                width="160"
+                height="8"
+                viewBox="0 0 160 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mt-2 mx-auto"
+              >
+                <path
+                  d="M0 6C40 0 120 0 160 6"
+                  stroke="#FACC15"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
 
         {/* Subtext */}
         <p className="text-gray-600 mb-8">
-          We would be happy to hear from you if you have a project in mind and
-          are seeking a reliable construction partner for the project.
+          We also specialize in servicing commercial properties such as chain
+          restaurants, cafés, and other businesses. Our ongoing maintenance and
+          repair services ensure that your commercial facility operates
+          smoothly. We are open to building long-term partnerships with new
+          clients, providing consistent and reliable support for ongoing service
+          needs.
         </p>
 
         {/* Buttons */}

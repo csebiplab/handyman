@@ -16,7 +16,7 @@ export default function TopNavbar() {
 
       {/* Center Navigation */}
       <nav className="hidden lg:flex flex-grow justify-end md:gap-5 lg:gap-16 3xl:gap-20 text-gray-800 font-medium mr-8 relative">
-        <Link href="/about" className="hover:text-yellow-600 transition">
+        <Link href="/aboutUs" className="hover:text-yellow-600 transition">
           About
         </Link>
 

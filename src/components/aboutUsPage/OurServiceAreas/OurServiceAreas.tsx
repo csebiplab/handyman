@@ -74,11 +74,25 @@ const OurServiceAreas = ({ classNames }: { classNames?: any }) => {
         {/* ======= Section Title ======= */}
         <div className="text-center mb-10">
           <h2 className="text-[25px] md:text-[28px] lg:text-[32px] font-bold text-gray-900">
-            Service Areas
+            Our Service Areas: Toronto & Surrounding GTA
           </h2>
-          <div className="w-20 h-[3px] bg-yellow-400 mx-auto mt-2 rounded-full" />
+          <svg
+                width="160"
+                height="8"
+                viewBox="0 0 160 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mt-2 mx-auto"
+              >
+                <path
+                  d="M0 6C40 0 120 0 160 6"
+                  stroke="#FACC15"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
           <p className="text-base md:text-lg text-gray-700 mt-4">
-            We offer services across the Greater Toronto Area, including:
+            We proudly serve the Greater Toronto Area (GTA) and surrounding regions, including:
           </p>
         </div>
 
