@@ -1,3 +1,4 @@
+import GetAnEstimateButton from "@/components/common/form/GetAnEstimateButton";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -41,15 +42,9 @@ export default function ReadyToWorkSection() {
           >
             CALL US TODAY
           </Link>
-          <Link
-            href="/contact"
-            className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium 
-               py-2.5 px-4 sm:py-3 sm:px-6 
-               text-sm sm:text-base 
-               rounded-md shadow transition duration-300 text-center"
-          >
-            GET AN ESTIMATE
-          </Link>
+          <div>
+            <GetAnEstimateButton />
+          </div>
         </div>
 
         {/* Skyline Image - As normal image */}
