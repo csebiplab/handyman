@@ -1,7 +1,7 @@
 "use client";
 
+import React, { useState } from "react";
 import { Button } from "@material-tailwind/react";
-import { useState } from "react";
 import GetInTouchModal from "./GetInTouchModal";
 
 const GetAnEstimateButton: React.FC = () => {
@@ -13,33 +13,43 @@ const GetAnEstimateButton: React.FC = () => {
   return (
     <div className="inline-block">
       <Button
-        onClick={onOpen}
-        aria-label="Get an estimate"
-        className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium 
-               py-2.5 px-4 sm:py-3 sm:px-6 
-               text-sm sm:text-base 
-               rounded-md shadow transition duration-300 text-center flex items-center gap-2"
-      >
-        <span className="text-white text-xs md:text-base font-bold normal-case">
-          Get an Estimate
-        </span>
-        <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="8"
-            height="12"
-            viewBox="0 0 8 12"
-            fill="none"
-          >
-            <path
-              d="M0 10.5902L4.59 6.00095L0 1.41168L1.42 0.00190926L7.42 6.00095L1.42 12L0 10.5902Z"
-              fill="white"
-            />
-          </svg>
-        </span>
-      </Button>
+  onClick={onOpen}
+  aria-label="Get an estimate"
+  className="relative overflow-hidden flex items-center justify-center gap-2 
+  bg-[#DDBE00] text-white uppercase font-semibold text-sm px-6 py-2 tracking-wide 
+  transition-all duration-500 group"
+  style={{
+    clipPath:
+      "polygon(4% 0, 96% 0, 100% 30%, 100% 70%, 96% 100%, 4% 100%, 0% 70%, 0% 30%)",
+  }}
+>
+  {/* Button Text */}
+  <span
+    className="relative z-10 flex items-center justify-center gap-2 
+    transition-colors duration-500 group-hover:text-black"
+  >
+    <span className="text-xs md:text-base uppercase font-bold">
+      Get an Estimate
+    </span>
 
-      {/* Pass props to modal */}
+    {/* Arrow with hover animation */}
+    <span className="inline-block opacity-0 -translate-x-2 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-x-0">
+      →
+    </span>
+  </span>
+
+  {/* White fade hover overlay */}
+  <span
+    className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+    style={{
+      clipPath:
+        "polygon(4% 0, 96% 0, 100% 30%, 100% 70%, 96% 100%, 4% 100%, 0% 70%, 0% 30%)",
+    }}
+  ></span>
+</Button>
+
+
+      {/* Modal */}
       <GetInTouchModal isOpen={isOpen} onClose={onModalClose} />
     </div>
   );

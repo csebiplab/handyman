@@ -22,7 +22,7 @@ interface FormValues {
   name: string;
   email: string;
   communication: string;
-  phone: number;
+  phone: string;
   address: string;
   message: string;
   timeframe: string;

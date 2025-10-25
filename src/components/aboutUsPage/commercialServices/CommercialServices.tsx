@@ -40,14 +40,36 @@ export default function CommercialServices() {
         {/* Buttons */}
         <div className="flex flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-10 mb-3">
           <Link
-            href="tel:+16476834612"
-            className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium
-               py-2.5 px-4 sm:py-3 sm:px-6
-               text-sm sm:text-base
-               rounded-md shadow transition duration-300 text-center"
-          >
-            CALL US TODAY
-          </Link>
+  href="tel:+16476834612"
+  className="relative font-semibold text-sm px-8 py-2 text-white uppercase tracking-wide transition-all duration-500 group overflow-hidden flex items-center justify-center"
+  style={{
+    backgroundColor: "#DDBE00",
+    clipPath:
+      "polygon(4% 0, 96% 0, 100% 30%, 100% 70%, 96% 100%, 4% 100%, 0% 70%, 0% 30%)",
+  }}
+>
+  {/* Button Text + Arrow */}
+  <span
+    className="relative z-10 flex items-center justify-center gap-2 text-white transition-all duration-500"
+  >
+    <span>CALL US TODAY</span>
+
+    {/* Arrow appears only on hover */}
+    <span className="inline-block opacity-0 -translate-x-2 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-x-0">
+      →
+    </span>
+  </span>
+
+  {/* Black fade background on hover */}
+  <span
+    className="absolute inset-0 bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+    style={{
+      clipPath:
+        "polygon(4% 0, 96% 0, 100% 30%, 100% 70%, 96% 100%, 4% 100%, 0% 70%, 0% 30%)",
+    }}
+  ></span>
+</Link>
+
           <div>
             <GetAnEstimateButton />
           </div>

@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import Image from "next/image";
 import Link from "next/link";
+import GetAnEstimateButton from "@/components/common/form/GetAnEstimateButton";
 
 const bannerImages = [
   "/assets/handymanHomePage/homePageBannerImage1.png",
@@ -31,16 +32,7 @@ export default function Banner() {
         </p>
 
         <div>
-          <Link
-            href="/estimate"
-            className="hidden sm:inline-block bg-[#E1B900] hover:bg-[#d4a900] text-white font-bold text-xs sm:text-sm md:text-base px-6 sm:px-8 py-2.5 sm:py-3 relative transition-all duration-300"
-            style={{
-              clipPath:
-                "polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)",
-            }}
-          >
-            GET AN ESTIMATE
-          </Link>
+          <GetAnEstimateButton />
         </div>
       </div>
 

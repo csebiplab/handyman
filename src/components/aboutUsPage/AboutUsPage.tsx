@@ -11,7 +11,7 @@ import Map from "../common/Map";
 const AboutUsPage: React.FC = () => {
   return (
     <main>
-      <section className="m-x-192">
+      <section className="m-x-192 mt-8">
         <AboutUsBanner />
       </section>
       <section className=" m-x-192">
