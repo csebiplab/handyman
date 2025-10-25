@@ -64,7 +64,7 @@ export default function TopNavbar() {
         <Link href="/projects" className="hover:text-yellow-600 transition">
           Projects
         </Link>
-        <Link href="/contact" className="hover:text-yellow-600 transition">
+        <Link href="/contactUs" className="hover:text-yellow-600 transition">
           Contact
         </Link>
       </nav>
