@@ -14,13 +14,17 @@ export default function CenterNavbar() {
       {/* Left Section */}
       <div className="flex items-center gap-2 sm:gap-4">
         <div className="relative w-[60px] h-[54px] sm:w-[84px] sm:h-[74px]">
-          <Image
-            src="/assets/handymanHomePage/centerNavbarLogo.png"
-            alt="Toronto Handyman Logo"
-            fill
-            className="object-contain"
-            priority
-          />
+          <Link href="/">
+            <div className="relative w-[60px] h-[54px] sm:w-[84px] sm:h-[74px] cursor-pointer">
+              <Image
+                src="/assets/handymanHomePage/centerNavbarLogo.png"
+                alt="Toronto Handyman Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </Link>
         </div>
 
         {/* Hide this text on mobile */}
