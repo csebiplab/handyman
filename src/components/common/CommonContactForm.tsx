@@ -108,7 +108,7 @@ export default function CommonContactForm() {
   } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
-    mailSendHandler(data, reset, setIsLoading, toast);
+    mailSendHandler({data, reset, setIsLoading, toast});
   };
 
   const renderField = (field: FormField) => {
