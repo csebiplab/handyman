@@ -5,20 +5,20 @@ import Image from "next/image";
 export default function AboutUs() {
   return (
     <section className="relative w-full overflow-hidden rounded-2xl bg-gray-50">
-      {/* Background Image (55% width, fully visible) */}
-      <div className="absolute hidden sm:block inset-y-0 left-0 w-[55%] h-full">
+      {/* Background Image (only visible on large and up) */}
+      <div className="absolute hidden lg:block inset-y-0 left-0 w-[55%] h-full">
         <Image
           src="/assets/handymanHomePage/aboutUsImage.png"
           alt="Modern Kitchen"
           fill
-          className="object-contain object-left" // ensures the image is fully visible and aligned left
+          className="object-contain object-left"
           priority
         />
       </div>
 
-      {/* Overlay Gradient Blur starting from 50% */}
+      {/* Gradient Blur (only on large and up) */}
       <div
-        className="absolute inset-y-0 left-0 w-[55%] h-full"
+        className="absolute hidden lg:block inset-y-0 left-0 w-[55%] h-full"
         style={{
           backdropFilter: "blur(8px)",
           WebkitMaskImage:
@@ -29,11 +29,11 @@ export default function AboutUs() {
       ></div>
 
       {/* Content Container */}
-      <div className="relative z-10 flex items-center justify-end min-h-[340px]">
-        {/* Text Block with Full Blur */}
-        <div className="w-full lg:w-[55%] flex items-center backdrop-blur-md rounded-l-2xl shadow-lg">
-          <div className="p-6 md:p-10 lg:p-16 text-gray-800">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+      <div className="relative z-10 flex items-center justify-center lg:justify-end min-h-[340px]">
+        {/* Text Section */}
+        <div className="w-full lg:w-[55%] flex items-center">
+          <div className="p-6 sm:p-8 md:p-10 lg:p-16 text-gray-800 text-left">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
               About Us
               <svg
                 width="160"
@@ -52,11 +52,11 @@ export default function AboutUs() {
               </svg>
             </h2>
 
-            <h3 className="text-lg md:text-xl font-semibold mb-4 text-gray-900">
+            <h3 className="text-lg sm:text-xl font-semibold mb-4 text-gray-900">
               Reliable Handyman Services You Can Trust
             </h3>
 
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-700 leading-relaxed text-sm sm:text-base max-w-2xl">
               Toronto Handyman is a trusted company offering licensed and expert
               craftsmanship. Our specialists cater to both residential and
               commercial projects, ensuring each task is completed with

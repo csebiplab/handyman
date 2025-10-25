@@ -39,13 +39,13 @@ export default function GetInTouch() {
                 Contact us today for a free estimate on your project
               </p>
 
-              <div className="space-y-4 text-sm md:pl-6">
+              <div className="space-y-8 text-sm md:pl-6 py-4">
                 {/* Email */}
                 <div className="flex items-start gap-3">
                   <Mail className="text-yellow-500 mt-[2px]" size={18} />
                   <div>
                     <p className="text-gray-800 text-sm font-medium">Email</p>
-                    <p className="text-gray-600 text-lg">info@torontohandymans.com</p>
+                    <p className="text-gray-700 text-lg font-semibold">info@torontohandymans.com</p>
                   </div>
                 </div>
 
@@ -54,7 +54,7 @@ export default function GetInTouch() {
                   <MapPin className="text-yellow-500 mt-[2px]" size={18} />
                   <div>
                     <p className="text-gray-800 text-sm font-medium">Address</p>
-                    <p className="text-gray-600 text-lg">
+                    <p className="text-gray-700 text-lg font-semibold">
                       224 Millwood Rd, Toronto, Canada
                     </p>
                   </div>
@@ -65,7 +65,7 @@ export default function GetInTouch() {
                   <Clock className="text-yellow-500 mt-[2px]" size={18} />
                   <div>
                     <p className="text-gray-800 text-sm font-medium">Opening Hours</p>
-                    <p className="text-gray-600 text-lg">09:00–17:00</p>
+                    <p className="text-gray-700 text-lg font-semibold">09:00–17:00</p>
                   </div>
                 </div>
 
@@ -74,7 +74,7 @@ export default function GetInTouch() {
                   <Phone className="text-yellow-500 mt-[2px]" size={18} />
                   <div>
                     <p className="text-gray-800 text-sm font-medium">Telephone</p>
-                    <p className="text-gray-600 text-lg">(647) 326-9185</p>
+                    <p className="text-gray-700 text-lg font-semibold">(647) 326-9185</p>
                   </div>
                 </div>
               </div>

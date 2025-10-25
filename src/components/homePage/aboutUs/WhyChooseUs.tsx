@@ -1,7 +1,8 @@
 "use client";
 
+import { useRef, useState } from "react";
 import Image from "next/image";
-import { Play } from "lucide-react";
+import { Play, Pause } from "lucide-react";
 
 const features = [
   {
@@ -37,22 +38,51 @@ const features = [
 ];
 
 export default function WhyChooseUs() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlayPause = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    try {
+      if (isPlaying) {
+        video.pause();
+      } else {
+        // some browsers need muted + play() returned promise handling
+        await video.play();
+      }
+      setIsPlaying(!isPlaying);
+    } catch (err) {
+      console.error("Video play failed:", err);
+    }
+  };
+
   return (
     <section className="w-full mt-10 bg-gray-50 rounded-2xl overflow-hidden flex flex-col lg:flex-row">
-      {/* Left Image (20%) with Play Button */}
-      <div className="relative order-2 sm:order-1 w-full lg:w-[20%] h-64 lg:h-auto">
-        <Image
-          src="/assets/handymanHomePage/whyChooseUs.png"
-          alt="Why Choose Us"
-          fill
-          className="object-cover"
-          priority
+      {/* Left Video Section (20%) */}
+      <div className="relative order-2 sm:order-1 w-full lg:w-[20%] h-64 lg:h-auto overflow-hidden">
+        <video
+          ref={videoRef}
+          src="/Videos/WhatsApp Video 2025-09-20 at 5.50.53 PM.mp4"
+          className="w-full h-full object-cover"
+          preload="auto"
+          muted
+          playsInline
+          // add controls={false} to make sure no default controls appear
         />
 
-        {/* Play Button Overlay */}
+        {/* Play/Pause Button Overlay */}
         <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-          <button className="w-14 h-14 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/40 text-white hover:scale-110 hover:bg-gray-950 hover:text-white transition-all duration-300 shadow-lg">
-            <Play className="w-6 h-6" />
+          <button
+            onClick={handlePlayPause}
+            className="w-14 h-14 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/40 text-white hover:scale-110 hover:bg-gray-950 transition-all duration-300 shadow-lg"
+          >
+            {isPlaying ? (
+              <Pause className="w-6 h-6" />
+            ) : (
+              <Play className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>

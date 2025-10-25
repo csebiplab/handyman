@@ -53,6 +53,10 @@ const maps = [
     src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5428818088157!2d-79.55631162402474!3d43.64685177216179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3d2999071e79%3A0x8a516a1cc7f61a0d!2sEtobicoke%2C%20Toronto%2C%20ON!5e0!3m2!1sen!2sca!4v1711192951115!5m2!1sen!2sca",
     location: "Etobicoke",
   },
+  {
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5428818088157!2d-79.55631162402474!3d43.64685177216179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3d2999071e79%3A0x8a516a1cc7f61a0d!2sEtobicoke%2C%20Toronto%2C%20ON!5e0!3m2!1sen!2sca!4v1711192951115!5m2!1sen!2sca",
+    location: "Vaughan",
+  },
 ];
 
 const OurServiceAreas = ({ classNames }: { classNames?: any }) => {
