@@ -4,17 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 const OurPromise: React.FC = () => {
-  const images = [
-    "/assets/aboutUsPage/promise1.png",
-    "/assets/aboutUsPage/promise2.png",
-    "/assets/aboutUsPage/promise3.png",
-    "/assets/aboutUsPage/promise4.png",
-    "/assets/aboutUsPage/promise5.png",
-    "/assets/aboutUsPage/promise6.png",
-    "/assets/aboutUsPage/promise7.png",
-    "/assets/aboutUsPage/promise8.png",
-    "/assets/aboutUsPage/promise9.png",
-  ];
+  const image = "/assets/aboutUsPage/ourPromiseImage.png";
 
   const promises = [
     {
@@ -32,38 +22,52 @@ const OurPromise: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white w-full">
-      {/* Optional Yellow Decorative Curve */}
-      <div className="w-full h-4 bg-gradient-to-r from-yellow-400 to-transparent rounded-tr-full"></div>
-
-      {/* Image Grid Section */}
-      <div className="w-full flex justify-center items-center bg-gray-50 overflow-hidden py-8 md:py-12">
-        <div className="grid grid-cols-5 sm:grid-cols-7 lg:grid-cols-9 gap-2 md:gap-3 px-2 sm:px-4">
-          {images.map((src, index) => (
-            <div
-              key={index}
-              className="relative w-[80px] h-[80px] sm:w-[120px] sm:h-[120px] md:w-[150px] md:h-[150px] lg:w-[180px] lg:h-[180px] overflow-hidden rotate-45 rounded-lg shadow-md"
-            >
-              <div className="-rotate-45 w-full h-full relative">
-                <Image
-                  src={src}
-                  alt={`Our Promise Image ${index + 1}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+    <section className="bg-white w-full rounded-2xl overflow-hidden">
+      {/* Yellow Decorative Line */}
+      <div>
+        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800">
+          Our Promise: Reliable, Precise, Professional
+        </h2>
+        <svg
+          width="160"
+          height="8"
+          viewBox="0 0 160 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="mb-5"
+        >
+          <path
+            d="M0 6C40 0 120 0 160 6"
+            stroke="#FACC15"
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+        </svg>
       </div>
 
-      {/* Text Section */}
-      <div className="bg-gray-100 text-center md:text-left px-6 md:px-16 py-8 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Full-Width Gallery Image */}
+      <div className="relative w-full h-[220px] sm:h-[300px] md:h-[350px] lg:h-[400px] overflow-hidden">
+        <Image
+          src={image}
+          alt="Our Promise Gallery"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
+
+      {/* Promise Text Section */}
+      <div className="bg-gray-100 text-center md:text-left px-6 md:px-16 py-10 md:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {promises.map((promise, index) => (
-            <div key={index} className="flex flex-col items-center md:items-start">
-              <h3 className="font-bold text-lg mb-2">{promise.title}:</h3>
-              <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+            <div
+              key={index}
+              className="flex flex-col items-center md:items-start text-gray-800"
+            >
+              <h3 className="font-semibold text-xl mb-3 text-gray-900">
+                {promise.title}
+              </h3>
+              <p className="text-gray-700 text-base leading-relaxed">
                 {promise.text}
               </p>
             </div>
