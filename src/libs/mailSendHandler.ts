@@ -29,7 +29,7 @@ export const mailSendHandler = async ({
   setIsLoading,
   toast,
   onClose,
-}: MailSendHandlerParams): Promise<void> => {
+}: any): Promise<void> => {
   const emailTemplate = `
     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
       <p><strong>Name:</strong> ${data?.name}</p>
@@ -47,7 +47,7 @@ export const mailSendHandler = async ({
   const payload = {
     projectFor:
       process.env.NODE_ENV === "production"
-        ? "easypools.landscaping@gmail.com"
+        ? "bayzidweb04@gmail.com"
         : "bayzidweb04@gmail.com",
     brand: "Easy Pools",
     name: data?.name,
