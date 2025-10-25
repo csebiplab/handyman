@@ -47,7 +47,7 @@ export const mailSendHandler = async ({
   const payload = {
     projectFor:
       process.env.NODE_ENV === "production"
-        ? "bayzidweb04@gmail.com"
+        ? "mohammad.oliullah25@gmail.com"
         : "bayzidweb04@gmail.com",
     brand: "Easy Pools",
     name: data?.name,
