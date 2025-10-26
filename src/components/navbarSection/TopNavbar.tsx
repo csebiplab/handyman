@@ -1,7 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, MapPin, Instagram } from "lucide-react";
+import Image from "next/image";
+
+// --- Icon Data ---
+const icons = [
+  {
+    src: "/assets/navbarIconFacebook.png",
+    alt: "Facebook",
+    link: "https://www.facebook.com/share/1CURMHqadu/?mibextid=wwXIfr",
+  },
+  {
+    src: "/assets/navbarIconHomestars.png",
+    alt: "Homestars",
+    link: "https://www.homestars.com/profile/torontohandymans",
+  },
+  {
+    src: "/assets/navbarIconMap.png",
+    alt: "Map",
+    link: "https://maps.app.goo.gl/1vziReSzQt4oNK5p8?g_st=ipc",
+  },
+];
 
 export default function TopNavbar() {
   return (
@@ -22,40 +41,9 @@ export default function TopNavbar() {
 
         {/* Services Dropdown */}
         <div className="relative group">
-          <button
-            className="hover:text-yellow-600 transition flex items-center gap-1 focus:outline-none"
-          >
-            Services
-            <span className="text-xs">▼</span>
+          <button className="hover:text-yellow-600 transition flex items-center gap-1 focus:outline-none">
+            Services <span className="text-xs">▼</span>
           </button>
-
-          {/* Dropdown Menu */}
-          {/* <div className="absolute hidden group-hover:block bg-white shadow-md rounded-md mt-2 min-w-[180px] border border-gray-100 z-50">
-            <Link
-              href="/services/home-repair"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-            >
-              Home Repair
-            </Link>
-            <Link
-              href="/services/painting"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-            >
-              Painting
-            </Link>
-            <Link
-              href="/services/plumbing"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-            >
-              Plumbing
-            </Link>
-            <Link
-              href="/services/carpentry"
-              className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-            >
-              Carpentry
-            </Link>
-          </div> */}
         </div>
 
         <Link href="/blogs" className="hover:text-yellow-600 transition">
@@ -69,27 +57,26 @@ export default function TopNavbar() {
         </Link>
       </nav>
 
-      {/* Right Icons */}
+      {/* Right Icons (Dynamic) */}
       <div className="hidden md:flex items-center gap-4">
         <div className="h-6 w-px bg-gray-300" />
-        <Link
-          href="https://www.facebook.com/share/1CURMHqadu/?mibextid=wwXIfr"
-          className="w-7 h-7 border border-gray-400 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"
-        >
-          <Facebook className="w-4 h-4" />
-        </Link>
-        <Link
-          href="#"
-          className="w-7 h-7 border border-gray-400 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"
-        >
-          <Instagram className="w-4 h-4" />
-        </Link>
-        <Link
-          href="https://maps.app.goo.gl/1vziReSzQt4oNK5p8?g_st=ipc"
-          className="w-7 h-7 border border-gray-400 rounded-full flex items-center justify-center hover:bg-yellow-500 hover:text-white transition"
-        >
-          <MapPin className="w-4 h-4" />
-        </Link>
+        {icons.map((icon, index) => (
+          <Link
+            key={index}
+            href={icon.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center"
+          >
+            <Image
+              src={icon.src}
+              alt={icon.alt}
+              width={27}
+              height={27}
+              className="object-contain"
+            />
+          </Link>
+        ))}
       </div>
     </div>
   );

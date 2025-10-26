@@ -5,34 +5,22 @@ import Image from "next/image";
 export default function AboutUs() {
   return (
     <section className="relative w-full overflow-hidden rounded-2xl bg-gray-50">
-      {/* Background Image (only visible on large and up) */}
-      <div className="absolute hidden lg:block inset-y-0 left-0 w-[55%] h-full">
+      {/* Full-width Background Image */}
+      <div className="absolute inset-0">
         <Image
-          src="/assets/handymanHomePage/aboutUsImage.png"
+          src="/assets/handymanHomePage/WhatsApp Image 2025-10-26 at 11.15.56_c484bf10.jpg"
           alt="Modern Kitchen"
           fill
-          className="object-contain object-left"
+          className="object-cover object-center brightness-100"
           priority
         />
       </div>
 
-      {/* Gradient Blur (only on large and up) */}
-      <div
-        className="absolute hidden lg:block inset-y-0 left-0 w-[55%] h-full"
-        style={{
-          backdropFilter: "blur(8px)",
-          WebkitMaskImage:
-            "linear-gradient(to right, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)",
-          maskImage:
-            "linear-gradient(to right, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)",
-        }}
-      ></div>
-
       {/* Content Container */}
       <div className="relative z-10 flex items-center justify-center lg:justify-end min-h-[340px]">
         {/* Text Section */}
-        <div className="w-full lg:w-[55%] flex items-center">
-          <div className="p-6 sm:p-8 md:p-10 lg:p-16 text-gray-800 text-left">
+        <div className="w-full lg:w-[50%] flex items-center">
+          <div className="p-6 text-gray-900 text-left">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
               About Us
               <svg
@@ -52,11 +40,11 @@ export default function AboutUs() {
               </svg>
             </h2>
 
-            <h3 className="text-lg sm:text-xl font-semibold mb-4 text-gray-900">
+            <h3 className="text-lg sm:text-2xl font-semibold mb-4 text-gray-800">
               Reliable Handyman Services You Can Trust
             </h3>
 
-            <p className="text-gray-700 leading-relaxed text-sm sm:text-base max-w-2xl">
+            <p className="leading-relaxed text-sm md:text-lg text-gray-700">
               Toronto Handyman is a trusted company offering licensed and expert
               craftsmanship. Our specialists cater to both residential and
               commercial projects, ensuring each task is completed with
