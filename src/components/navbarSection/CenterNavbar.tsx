@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import GetAnEstimateButtonBgBlack from "../common/form/GetAnEstimateButtonBgBlack";
 
 export default function CenterNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,34 +51,7 @@ export default function CenterNavbar() {
         </a>
 
         {/* Estimate button (hidden on small) */}
-        <Link
-          href="/estimate"
-          className="hidden sm:inline-block relative font-semibold text-sm px-8 py-2 text-white uppercase tracking-wide transition-all duration-500 group overflow-hidden"
-          style={{
-            backgroundColor: "#DDBE00",
-            clipPath:
-              "polygon(4% 0, 96% 0, 100% 30%, 100% 70%, 96% 100%, 4% 100%, 0% 70%, 0% 30%)",
-          }}
-        >
-          {/* Button Text + Arrow */}
-          <span className="relative z-10 flex items-center justify-center gap-2">
-            <span>GET AN ESTIMATE</span>
-
-            {/* Arrow appears only on hover */}
-            <span className="inline-block opacity-0 -translate-x-2 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-x-0">
-              →
-            </span>
-          </span>
-
-          {/* Black fade background on hover */}
-          <span
-            className="absolute inset-0 bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-            style={{
-              clipPath:
-                "polygon(4% 0, 96% 0, 100% 30%, 100% 70%, 96% 100%, 4% 100%, 0% 70%, 0% 30%)",
-            }}
-          ></span>
-        </Link>
+        <GetAnEstimateButtonBgBlack />
 
         {/* Hamburger icon only on mobile */}
         <button
