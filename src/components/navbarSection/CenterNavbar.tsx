@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Phone, Menu, Facebook, MapPin, Send, X } from "lucide-react";
+import { Phone, Menu, Facebook, MapPin, Send } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import GetAnEstimateButtonBgBlack from "../common/form/GetAnEstimateButtonBgBlack";
@@ -11,6 +11,11 @@ export default function CenterNavbar() {
   const [openDropdown, setOpenDropdown] = useState(false);
 
   // Arrays for menu items
+  const icons = [
+    "/assets/navbarIconFacebook.png",
+    "/assets/navbarIconhomestars.png",
+    "/assets/navbarIconmap.png",
+  ];
   const mainMenu = [
     { title: "Home", href: "/" },
     { title: "About Us", href: "/about" },
@@ -44,7 +49,7 @@ export default function CenterNavbar() {
   ];
 
   return (
-    <header className="bg-white border-b border-gray-200 py-2 p-x-192 flex justify-between items-center relative">
+    <header className="bg-white border-b border-gray-200 py-2 px-4 flex justify-between items-center relative">
       {/* Left Section */}
       <div className="flex items-center gap-2 sm:gap-4">
         <Link
@@ -91,6 +96,14 @@ export default function CenterNavbar() {
           <Menu className="w-6 h-6 text-gray-800" />
         </button>
       </div>
+
+      {/* 🔥 Overlay (Dark background when menu is open) */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/35 z-40 transition-opacity duration-300"
+          onClick={() => setIsMenuOpen(false)}
+        ></div>
+      )}
 
       {/* Mobile Menu */}
       <div
@@ -141,8 +154,7 @@ export default function CenterNavbar() {
                         className="w-full text-left py-2 hover:text-yellow-600 transition flex justify-between items-center"
                       >
                         {item.title}
-                        <span className="ml-2">&#x25BC;</span>{" "}
-                        {/* Down arrow */}
+                        <span className="ml-2">&#x25BC;</span>
                       </button>
                       {openDropdown && (
                         <ul className="mt-2 ml-4 flex flex-col bg-gray-50 rounded shadow-md">
@@ -197,16 +209,22 @@ export default function CenterNavbar() {
 
         {/* Fixed Bottom Section */}
         <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-5 pb-6 pt-4 bg-white border-t border-gray-200">
-          <div className="flex gap-6 text-gray-900">
-            <Link href="#" className="hover:text-yellow-600">
-              <Facebook className="w-6 h-6" />
-            </Link>
-            <Link href="#" className="hover:text-yellow-600">
-              <Send className="w-6 h-6" />
-            </Link>
-            <Link href="#" className="hover:text-yellow-600">
-              <MapPin className="w-6 h-6" />
-            </Link>
+          <div className="flex gap-6">
+            {icons.map((icon, index) => (
+              <Link
+                key={index}
+                href="#"
+                className="hover:opacity-80 transition-opacity duration-200"
+              >
+                <Image
+                  src={icon}
+                  alt={`icon-${index}`}
+                  width={28}
+                  height={28}
+                  className="object-contain"
+                />
+              </Link>
+            ))}
           </div>
 
           <div className="w-[90%]">
