@@ -39,7 +39,7 @@ export default function WorkGallery() {
         />
       </svg>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {galleryImages.map((img, index) => (
           <div
             key={index}

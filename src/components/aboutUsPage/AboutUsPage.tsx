@@ -14,7 +14,7 @@ const AboutUsPage: React.FC = () => {
       <section className="m-x-192 mt-8">
         <AboutUsBanner />
       </section>
-      <section className=" m-x-192">
+      <section className=" m-x-192 my-12">
         <AboutUs />
       </section>
       <section className=" m-x-192">

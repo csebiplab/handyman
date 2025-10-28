@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function AboutUs() {
   return (
     <section className="relative w-full overflow-hidden rounded-2xl bg-gray-50">
-      {/* Full-width Background Image */}
-      <div className="absolute inset-0">
+      {/* Full-width Background Image (hidden on small devices) */}
+      <div className="absolute inset-0 hidden sm:block">
         <Image
-          src="/assets/handymanHomePage/WhatsApp Image 2025-10-26 at 11.15.56_c484bf10.jpg"
+          src="/assets/handymanHomePage/aboutUsbg.jpg"
           alt="Modern Kitchen"
           fill
           className="object-cover object-center brightness-100"

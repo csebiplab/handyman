@@ -18,7 +18,7 @@ export default function CenterNavbar() {
   ];
   const mainMenu = [
     { title: "Home", href: "/" },
-    { title: "About Us", href: "/about" },
+    { title: "About Us", href: "/aboutUs" },
     {
       title: "Services",
       href: "/services",
@@ -31,7 +31,7 @@ export default function CenterNavbar() {
     { title: "Gallery", href: "/gallery" },
     { title: "Blog", href: "/blogs" },
     { title: "Projects", href: "/projects" },
-    { title: "Contact", href: "/contact" },
+    { title: "Contact", href: "/contactUs" },
   ];
 
   const serviceMenu = [

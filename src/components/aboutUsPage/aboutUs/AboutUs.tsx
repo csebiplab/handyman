@@ -5,34 +5,22 @@ import Image from "next/image";
 export default function AboutUs() {
   return (
     <section className="relative w-full overflow-hidden rounded-2xl bg-gray-50">
-      {/* Background Image (only visible on large and up) */}
-      <div className="absolute hidden lg:block inset-y-0 left-0 w-[55%] h-full">
+      {/* Full-width Background Image (hidden on small devices) */}
+      <div className="absolute inset-0 hidden sm:block">
         <Image
-          src="/assets/aboutUsPage/aboutUs.png"
+          src="/assets/aboutUsPage/aboutUsbg.jpg"
           alt="Modern Kitchen"
           fill
-          className="object-contain object-left"
+          className="object-cover object-center brightness-100"
           priority
         />
       </div>
 
-      {/* Gradient Blur (only on large and up) */}
-      <div
-        className="absolute hidden lg:block inset-y-0 left-0 w-[55%] h-full"
-        style={{
-          backdropFilter: "blur(8px)",
-          WebkitMaskImage:
-            "linear-gradient(to right, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)",
-          maskImage:
-            "linear-gradient(to right, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 100%)",
-        }}
-      ></div>
-
       {/* Content Container */}
       <div className="relative z-10 flex items-center justify-center lg:justify-end min-h-[340px]">
         {/* Text Section */}
-        <div className="w-full lg:w-[55%] flex items-center bg-gray-100">
-          <div className="p-6 sm:p-8 md:p-10 lg:p-16 text-gray-800 text-left">
+        <div className="w-full lg:w-[50%] flex items-center">
+          <div className="p-6 text-gray-900 text-left">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
               About Us
               <svg
@@ -52,12 +40,16 @@ export default function AboutUs() {
               </svg>
             </h2>
 
-            <h3 className="text-lg sm:text-xl font-semibold mb-4 text-gray-900">
+            <h3 className="text-lg sm:text-2xl font-semibold mb-4 text-gray-800">
               Your Trusted Handyman: Skilled, Reliable, Affordable
             </h3>
 
-            <p className="text-gray-700 leading-relaxed text-sm sm:text-base max-w-2xl">
-              At Toronto Handyman, we are a growing company with a team of skilled, licensed specialists committed to delivering high-quality workmanship on both residential and commercial projects. Our experts bring reliability, attention to detail, and long-term value to every task, ensuring the best results for our clients.
+            <p className="leading-relaxed text-sm md:text-lg text-gray-700">
+              At Toronto Handyman, we are a growing company with a team of
+              skilled, licensed specialists committed to delivering high-quality
+              workmanship on both residential and commercial projects. Our
+              experts bring reliability, attention to detail, and long-term
+              value to every task, ensuring the best results for our clients.
             </p>
           </div>
         </div>
