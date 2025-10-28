@@ -13,8 +13,8 @@ export default function CenterNavbar() {
   // Arrays for menu items
   const icons = [
     "/assets/navbarIconFacebook.png",
-    "/assets/navbarIconhomestars.png",
-    "/assets/navbarIconmap.png",
+    "/assets/navbarIconHomestars.png",
+    "/assets/navbarIconMap.png",
   ];
   const mainMenu = [
     { title: "Home", href: "/" },
