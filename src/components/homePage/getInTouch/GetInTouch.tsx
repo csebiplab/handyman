@@ -12,7 +12,7 @@ export default function GetInTouch() {
       <svg
         viewBox="0 0 200 40"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-40 h-6 mx-auto mb-4"
+        className="w-40 h-6 mb-4"
       >
         <path
           d="M0 30 Q100 10 200 30"

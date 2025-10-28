@@ -30,7 +30,7 @@ export default function BeforeAfterImpact() {
       <svg
         viewBox="0 0 200 40"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-80 h-8 mb-10."
+        className="w-80 h-8 mx-auto"
       >
         <path
           d="M0 30 Q100 10 200 30"
@@ -41,7 +41,7 @@ export default function BeforeAfterImpact() {
         />
       </svg>
 
-      <div className="relative">
+      <div className="relative mt-10">
         <Swiper
           modules={[Navigation, Autoplay]}
           autoplay={{ delay: 4000, disableOnInteraction: false }}

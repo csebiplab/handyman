@@ -2,10 +2,11 @@
 
 import { Play } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules"; // ✅ Autoplay
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useRef, useState } from "react";
 
 export default function VideoGallery() {
   const videos = [
@@ -45,7 +46,7 @@ export default function VideoGallery() {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
-        slidesPerView={2}
+        slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
         autoplay={{
@@ -54,36 +55,55 @@ export default function VideoGallery() {
         }}
         loop={true}
         breakpoints={{
-          768: { slidesPerView: 4 },
+          640: { slidesPerView: 2 },
           1024: { slidesPerView: 4 },
         }}
         className="px-4"
       >
         {videos.map((video) => (
           <SwiperSlide key={video.id}>
-            <div className="relative group overflow-hidden rounded-xl shadow-sm cursor-pointer">
-              {/* Video Thumbnail */}
-              <video
-                src={video.src}
-                className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
-                muted
-                loop
-                playsInline
-              />
-
-              {/* Light gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent group-hover:from-black/30 transition-all duration-500" />
-
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300">
-                  <Play size={26} fill="white" />
-                </div>
-              </div>
-            </div>
+            <VideoSlide src={video.src} />
           </SwiperSlide>
         ))}
       </Swiper>
     </section>
+  );
+}
+
+// 🔹 Minimal VideoSlide component for play functionality
+function VideoSlide({ src }: { src: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (!videoRef.current) return;
+    videoRef.current.play();
+    setIsPlaying(true);
+  };
+
+  return (
+    <div className="relative group overflow-hidden rounded-xl shadow-sm cursor-pointer">
+      <video
+        ref={videoRef}
+        src={src}
+        className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
+        muted
+        loop
+        playsInline
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent group-hover:from-black/30 transition-all duration-500" />
+
+      {!isPlaying && (
+        <div
+          className="absolute inset-0 flex items-center justify-center"
+          onClick={handlePlay}
+        >
+          <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300">
+            <Play size={26} fill="white" />
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

@@ -36,12 +36,12 @@ const Footer = () => {
     },
     {
       href: "https://pinterest.com",
-      icon: "/assets/navbarIconhomestars.png",
+      icon: "/assets/navbarIconHomestars.png",
       label: "Pinterest",
     },
     {
       href: "https://maps.google.com",
-      icon: "/assets/navbarIconmap.png",
+      icon: "/assets/navbarIconMap.png",
       label: "Location",
     },
   ];
