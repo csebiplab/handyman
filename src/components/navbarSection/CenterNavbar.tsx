@@ -1,35 +1,66 @@
 "use client";
 
 import Image from "next/image";
-import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, Menu, Facebook, MapPin, Send, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import GetAnEstimateButtonBgBlack from "../common/form/GetAnEstimateButtonBgBlack";
 
 export default function CenterNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(false);
+
+  // Arrays for menu items
+  const mainMenu = [
+    { title: "Home", href: "/" },
+    { title: "About Us", href: "/about" },
+    {
+      title: "Services",
+      href: "/services",
+      subMenu: [
+        { title: "Web Development", href: "/services/web" },
+        { title: "Mobile Apps", href: "/services/mobile" },
+        { title: "SEO Optimization", href: "/services/seo" },
+      ],
+    },
+    { title: "Gallery", href: "/gallery" },
+    { title: "Blog", href: "/blogs" },
+    { title: "Projects", href: "/projects" },
+    { title: "Contact", href: "/contact" },
+  ];
+
+  const serviceMenu = [
+    { title: "Carpentry & Woodwork", href: "/services/carpentry-woodwork" },
+    { title: "Drywall & Finishing", href: "/services/drywall-finishing" },
+    { title: "Flooring Installation", href: "/services/flooring-installation" },
+    { title: "Painting", href: "/services/painting" },
+    { title: "Plumbing", href: "/services/plumbing" },
+    {
+      title: "Electrical (Minor Work)",
+      href: "/services/electrical-minor-work",
+    },
+    { title: "Full Renovation", href: "/services/full-renovation" },
+    { title: "Exterior Works", href: "/services/exterior-works" },
+  ];
 
   return (
     <header className="bg-white border-b border-gray-200 py-2 p-x-192 flex justify-between items-center relative">
       {/* Left Section */}
       <div className="flex items-center gap-2 sm:gap-4">
-        <div className="relative w-[60px] h-[54px] sm:w-[84px] sm:h-[74px]">
-          <Link href="/">
-            <div className="relative w-[60px] h-[54px] sm:w-[84px] sm:h-[74px] cursor-pointer">
-              <Image
-                src="/assets/handymanHomePage/centerNavbarLogo.png"
-                alt="Toronto Handyman Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          </Link>
-        </div>
+        <Link
+          href="/"
+          className="relative w-[60px] h-[54px] sm:w-[84px] sm:h-[74px]"
+        >
+          <Image
+            src="/assets/handymanHomePage/centerNavbarLogo.png"
+            alt="Toronto Handyman Logo"
+            fill
+            className="object-contain"
+            priority
+          />
+        </Link>
 
-        {/* Hide this text on mobile */}
-        <div className="hidden sm:block border-l border-gray-500 pl-4">
+        <div className="border-l border-gray-500 pl-4">
           <p className="text-sm text-gray-500 leading-none">Professional</p>
           <h1 className="text-base font-semibold text-gray-900 leading-tight">
             Handyman Services
@@ -39,10 +70,9 @@ export default function CenterNavbar() {
 
       {/* Right Section */}
       <div className="flex items-center gap-3 sm:gap-6">
-        {/* Phone */}
         <a
           href="tel:6473269185"
-          className="flex items-center gap-2 font-bold text-lg hover:text-yellow-600 transition"
+          className="hidden sm:flex items-center gap-2 font-bold text-lg hover:text-yellow-600 transition"
         >
           <Phone className="w-5 h-5 text-yellow-500" />
           <span className="text-gray-900 text-lg sm:text-[20px] font-bold">
@@ -50,102 +80,142 @@ export default function CenterNavbar() {
           </span>
         </a>
 
-        {/* Estimate button (hidden on small) */}
-        <GetAnEstimateButtonBgBlack />
+        <div className="hidden sm:block">
+          <GetAnEstimateButtonBgBlack />
+        </div>
 
-        {/* Hamburger icon only on mobile */}
         <button
           className="sm:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen ? (
-            <X className="w-6 h-6 text-gray-800" />
-          ) : (
-            <Menu className="w-6 h-6 text-gray-800" />
-          )}
+          <Menu className="w-6 h-6 text-gray-800" />
         </button>
       </div>
 
-      {/* Mobile Dropdown Menu */}
-      {isMenuOpen && (
-        <div className="absolute top-full right-0 w-[60%] bg-white border-t border-gray-200 shadow-md sm:hidden z-50">
-          <ul className="flex flex-col py-2">
-            <li>
-              <Link
-                href="/about"
-                className="block px-6 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className="flex justify-between w-full items-center px-6 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                <span>Services</span>
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform ${
-                    isServicesOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {isServicesOpen && (
-                <ul className="bg-gray-50">
-                  {/* <li>
+      {/* Mobile Menu */}
+      <div
+        className={`fixed top-0 right-0 h-screen w-[80%] bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-50 flex flex-col ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Close Button */}
+        <button
+          onClick={() => setIsMenuOpen(false)}
+          className="absolute top-4 right-4 text-gray-800 p-2 hover:bg-gray-100 rounded-full"
+        >
+          <p className="font-bold">Close</p>
+        </button>
+
+        <div className="overflow-y-auto flex-1 pb-32">
+          {/* Header */}
+          <div className="flex items-center gap-3 p-4 mt-10 border-b border-gray-200">
+            <div className="relative w-[70px] h-[65px]">
+              <Image
+                src="/assets/handymanHomePage/centerNavbarLogo.png"
+                alt="Toronto Handyman Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <div className="border-l border-gray-400 pl-3">
+              <p className="text-sm text-gray-500 leading-none">Professional</p>
+              <h1 className="text-base font-semibold text-gray-900 leading-tight">
+                Handyman Services
+              </h1>
+            </div>
+          </div>
+
+          {/* MAIN MENU */}
+          <div className="px-6 py-4">
+            <h2 className="text-gray-900 font-bold text-sm uppercase mb-2 border-b pb-1">
+              Main Menu
+            </h2>
+            <ul className="flex flex-col text-lg font-medium text-gray-800">
+              {mainMenu.map((item, index) => (
+                <li key={index} className="relative">
+                  {item.subMenu ? (
+                    <>
+                      <button
+                        onClick={() => setOpenDropdown(!openDropdown)}
+                        className="w-full text-left py-2 hover:text-yellow-600 transition flex justify-between items-center"
+                      >
+                        {item.title}
+                        <span className="ml-2">&#x25BC;</span>{" "}
+                        {/* Down arrow */}
+                      </button>
+                      {openDropdown && (
+                        <ul className="mt-2 ml-4 flex flex-col bg-gray-50 rounded shadow-md">
+                          {item.subMenu.map((subItem, subIndex) => (
+                            <li key={subIndex}>
+                              <Link
+                                href={subItem.href}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="block py-2 px-4 hover:text-yellow-600 transition"
+                              >
+                                {subItem.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </>
+                  ) : (
                     <Link
-                      href="/services/home-repair"
-                      className="block px-8 py-2 text-gray-700 hover:bg-gray-100"
+                      href={item.href}
+                      onClick={() => setIsMenuOpen(false)}
+                      className="block py-2 hover:text-yellow-600 transition"
                     >
-                      Home Repair
+                      {item.title}
                     </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/painting"
-                      className="block px-8 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Painting
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/services/plumbing"
-                      className="block px-8 py-2 text-gray-700 hover:bg-gray-100"
-                    >
-                      Plumbing
-                    </Link>
-                  </li> */}
-                </ul>
-              )}
-            </li>
-            <li>
-              <Link
-                href="/blogs"
-                className="block px-6 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                Blogs
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/projects"
-                className="block px-6 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className="block px-6 py-2 text-gray-800 hover:bg-gray-100"
-              >
-                Contact
-              </Link>
-            </li>
-          </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* SERVICE MENU */}
+          <div className="px-6 pb-4">
+            <h2 className="text-gray-900 font-bold text-sm uppercase mb-2 border-b pb-1">
+              Service Menu
+            </h2>
+            <ul className="flex flex-col text-lg font-medium text-gray-800">
+              {serviceMenu.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-2 hover:text-yellow-600 transition"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      )}
+
+        {/* Fixed Bottom Section */}
+        <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-5 pb-6 pt-4 bg-white border-t border-gray-200">
+          <div className="flex gap-6 text-gray-900">
+            <Link href="#" className="hover:text-yellow-600">
+              <Facebook className="w-6 h-6" />
+            </Link>
+            <Link href="#" className="hover:text-yellow-600">
+              <Send className="w-6 h-6" />
+            </Link>
+            <Link href="#" className="hover:text-yellow-600">
+              <MapPin className="w-6 h-6" />
+            </Link>
+          </div>
+
+          <div className="w-[90%]">
+            <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded-md transition">
+              GET AN ESTIMATE
+            </button>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }
