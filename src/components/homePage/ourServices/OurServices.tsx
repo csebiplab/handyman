@@ -118,8 +118,7 @@ export default function OurServices() {
 
       {/* Button */}
       <div className="mt-10 flex justify-start md:justify-center">
-        <Link
-          href="tel:+16476834612"
+        <button
           className="relative font-semibold text-sm px-8 py-2 text-white uppercase tracking-wide transition-all duration-500 group overflow-hidden flex items-center justify-center"
           style={{
             backgroundColor: "#DDBE00",
@@ -145,7 +144,7 @@ export default function OurServices() {
                 "polygon(4% 0, 96% 0, 100% 30%, 100% 70%, 96% 100%, 4% 100%, 0% 70%, 0% 30%)",
             }}
           ></span>
-        </Link>
+        </button>
       </div>
     </section>
   );
