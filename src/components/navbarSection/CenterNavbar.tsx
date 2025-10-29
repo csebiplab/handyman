@@ -19,15 +19,16 @@ export default function CenterNavbar() {
   const mainMenu = [
     { title: "Home", href: "/" },
     { title: "About Us", href: "/aboutUs" },
-    {
-      title: "Services",
-      href: "/services",
-      subMenu: [
-        { title: "Web Development", href: "/services/web" },
-        { title: "Mobile Apps", href: "/services/mobile" },
-        { title: "SEO Optimization", href: "/services/seo" },
-      ],
-    },
+    { title: "Services", href: "/services" },
+    // {
+    //   title: "Services",
+    //   href: "/services",
+    //   subMenu: [
+    //     { title: "Web Development", href: "/services/web" },
+    //     { title: "Mobile Apps", href: "/services/mobile" },
+    //     { title: "SEO Optimization", href: "/services/seo" },
+    //   ],
+    // },
     { title: "Gallery", href: "/gallery" },
     { title: "Blog", href: "/blogs" },
     { title: "Projects", href: "/projects" },
