@@ -1,14 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { Phone, Menu, Facebook, MapPin, Send } from "lucide-react";
+import { Phone, Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import GetAnEstimateButtonBgBlack from "../common/form/GetAnEstimateButtonBgBlack";
 
 export default function CenterNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(false);
 
   // Arrays for menu items
   const icons = [
@@ -16,19 +15,11 @@ export default function CenterNavbar() {
     "/assets/navbarIconHomestars.png",
     "/assets/navbarIconMap.png",
   ];
+
   const mainMenu = [
     { title: "Home", href: "/" },
     { title: "About Us", href: "/aboutUs" },
     { title: "Services", href: "/services" },
-    // {
-    //   title: "Services",
-    //   href: "/services",
-    //   subMenu: [
-    //     { title: "Web Development", href: "/services/web" },
-    //     { title: "Mobile Apps", href: "/services/mobile" },
-    //     { title: "SEO Optimization", href: "/services/seo" },
-    //   ],
-    // },
     { title: "Gallery", href: "/gallery" },
     { title: "Blog", href: "/blogs" },
     { title: "Projects", href: "/projects" },
@@ -98,7 +89,7 @@ export default function CenterNavbar() {
         </button>
       </div>
 
-      {/* 🔥 Overlay (Dark background when menu is open) */}
+      {/* 🔥 Overlay */}
       {isMenuOpen && (
         <div
           className="fixed inset-0 bg-black/35 z-40 transition-opacity duration-300"
@@ -147,41 +138,14 @@ export default function CenterNavbar() {
             </h2>
             <ul className="flex flex-col text-lg font-medium text-gray-800">
               {mainMenu.map((item, index) => (
-                <li key={index} className="relative">
-                  {item.subMenu ? (
-                    <>
-                      <button
-                        onClick={() => setOpenDropdown(!openDropdown)}
-                        className="w-full text-left py-2 hover:text-yellow-600 transition flex justify-between items-center"
-                      >
-                        {item.title}
-                        <span className="ml-2">&#x25BC;</span>
-                      </button>
-                      {openDropdown && (
-                        <ul className="mt-2 ml-4 flex flex-col bg-gray-50 rounded shadow-md">
-                          {item.subMenu.map((subItem, subIndex) => (
-                            <li key={subIndex}>
-                              <Link
-                                href={subItem.href}
-                                onClick={() => setIsMenuOpen(false)}
-                                className="block py-2 px-4 hover:text-yellow-600 transition"
-                              >
-                                {subItem.title}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block py-2 hover:text-yellow-600 transition"
-                    >
-                      {item.title}
-                    </Link>
-                  )}
+                <li key={index}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block py-2 hover:text-yellow-600 transition"
+                  >
+                    {item.title}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -208,7 +172,7 @@ export default function CenterNavbar() {
           </div>
         </div>
 
-        {/* Fixed Bottom Section */}
+        {/* Bottom Section */}
         <div className="absolute bottom-0 left-0 w-full flex flex-col items-center gap-5 pb-6 pt-4 bg-white border-t border-gray-200">
           <div className="flex gap-6">
             {icons.map((icon, index) => (
