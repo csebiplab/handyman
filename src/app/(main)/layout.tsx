@@ -3,7 +3,7 @@ import "../globals.css";
 import Navbar from "@/components/navbarSection/Navbar";
 import Footer from "@/components/footer/Footer";
 import { Montserrat } from "next/font/google";
-
+import BottomStickyContact from "@/components/common/bottomStickyContact/BottomStickyContact";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -24,8 +24,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.className} antialiased`}>
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Footer />
+        <div id="modal-root">
+          <BottomStickyContact />
+        </div>
       </body>
     </html>
   );

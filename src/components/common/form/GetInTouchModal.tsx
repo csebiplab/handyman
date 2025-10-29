@@ -21,7 +21,10 @@ interface GetInTouchModalProps {
   onClose: () => void;
 }
 
-const GetInTouchModal: React.FC<GetInTouchModalProps> = ({ isOpen, onClose }) => {
+const GetInTouchModal: React.FC<GetInTouchModalProps> = ({
+  isOpen,
+  onClose,
+}) => {
   const { register, handleSubmit, reset } = useForm<FormInputs>();
   const [loading, setLoading] = useState(false);
 
@@ -46,51 +49,54 @@ const GetInTouchModal: React.FC<GetInTouchModalProps> = ({ isOpen, onClose }) =>
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]"
+        className="fixed inset-0 bg-black/50 z-[9998] transition-opacity duration-300"
         onClick={onClose}
       />
 
       {/* Modal Container */}
-      <div className="fixed inset-0 flex items-center justify-center z-[9999] p-4">
-        <div className="relative bg-white rounded-lg shadow-2xl w-[75vw] max-w-6xl max-h-[90vh] overflow-y-auto">
-          
-          {/* Header */}
-          <div className="flex items-center justify-between border-b border-gray-200 p-4 sticky top-0 bg-white z-10">
-            <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
-              Get in Touch
-            </h2>
-            <button
-              onClick={onClose}
-              aria-label="Close modal"
-              className="text-gray-600 hover:text-gray-900"
-            >
-              <ImCross size={16} />
-            </button>
-          </div>
+      <div className="fixed inset-0 flex items-center justify-center z-[9999] px-4">
+        <div
+          className="relative bg-white rounded-lg shadow-2xl w-[65vw] max-w-5xl max-h-[90vh] overflow-y-auto animate-fadeIn"
+          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+        >
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            aria-label="Close modal"
+            className="absolute top-3 right-5 w-10 h-10 flex items-center justify-center 
+                       text-black hover:text-gray-700 transition z-50"
+          >
+            <ImCross size={20} />
+          </button>
 
-          {/* Body */}
-          <div className="p-6">
+          {/* Form Content */}
+          <div className="px-6 pb-6 pt-14">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-
               {/* Row 1: Name & Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-800">Your Name *</label>
+                  <label className="block text-sm font-medium text-gray-800">
+                    Your Name *
+                  </label>
                   <input
                     {...register("name", { required: true })}
                     type="text"
                     placeholder="Enter your name"
-                    className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm focus:border-gray-500 focus:outline-none"
+                    className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm
+                    placeholder:text-black focus:border-gray-500 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-800">Email Address *</label>
+                  <label className="block text-sm font-medium text-gray-800">
+                    Email Address *
+                  </label>
                   <input
                     {...register("email", { required: true })}
                     type="email"
                     placeholder="Enter your email"
-                    className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm focus:border-gray-500 focus:outline-none"
+                    className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm
+                    placeholder:text-black focus:border-gray-500 focus:outline-none"
                   />
                 </div>
               </div>
@@ -98,10 +104,13 @@ const GetInTouchModal: React.FC<GetInTouchModalProps> = ({ isOpen, onClose }) =>
               {/* Row 2: Preferred Contact & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-800">Preferred Contact *</label>
+                  <label className="block text-sm font-medium text-gray-800">
+                    Preferred Contact *
+                  </label>
                   <select
                     {...register("preferredContact", { required: true })}
-                    className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm focus:border-gray-500 focus:outline-none"
+                    className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm
+                    text-gray-800 placeholder:text-black focus:border-gray-500 focus:outline-none"
                   >
                     <option value="">Select</option>
                     <option value="email">Email</option>
@@ -111,35 +120,44 @@ const GetInTouchModal: React.FC<GetInTouchModalProps> = ({ isOpen, onClose }) =>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-800">Phone Number *</label>
+                  <label className="block text-sm font-medium text-gray-800">
+                    Phone Number *
+                  </label>
                   <input
                     {...register("phone", { required: true })}
                     type="tel"
                     placeholder="e.g., +1**********"
-                    className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm focus:border-gray-500 focus:outline-none"
+                    className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm
+                    placeholder:text-black focus:border-gray-500 focus:outline-none"
                   />
                 </div>
               </div>
 
               {/* Address */}
               <div>
-                <label className="block text-sm font-medium text-gray-800">Your Address *</label>
+                <label className="block text-sm font-medium text-gray-800">
+                  Your Address *
+                </label>
                 <input
                   {...register("address", { required: true })}
                   type="text"
                   placeholder="Enter your address"
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm focus:border-gray-500 focus:outline-none"
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm
+                  placeholder:text-black focus:border-gray-500 focus:outline-none"
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label className="block text-sm font-medium text-gray-800">Message *</label>
+                <label className="block text-sm font-medium text-gray-800">
+                  Message *
+                </label>
                 <textarea
                   {...register("message", { required: true })}
                   rows={4}
                   placeholder="Message"
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm focus:border-gray-500 focus:outline-none"
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-gray-100 p-2.5 text-sm 
+                  placeholder:text-black focus:border-gray-500 focus:outline-none"
                 />
               </div>
 
@@ -183,11 +201,11 @@ const GetInTouchModal: React.FC<GetInTouchModalProps> = ({ isOpen, onClose }) =>
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-4 w-full bg-[#b8860b] text-white text-sm py-2.5 rounded-md hover:bg-[#a0740a] transition-colors disabled:opacity-50"
+                className="mt-4 w-full bg-[#b8860b] text-white text-sm py-2.5 rounded-md 
+                           hover:bg-[#a0740a] transition-colors disabled:opacity-50"
               >
                 {loading ? "Submitting..." : "SUBMIT"}
               </button>
-
             </form>
           </div>
         </div>

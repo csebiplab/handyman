@@ -43,10 +43,10 @@ export default function WorkGallery() {
         {galleryImages.map((img, index) => (
           <div
             key={index}
-            className={`relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300 
+            className={`relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300
               ${
                 index === 0
-                  ? "col-span-2 row-span-2 aspect-[2/2]" // first image larger
+                  ? "col-span-2 row-span-2 aspect-[2/2]"
                   : "aspect-square"
               }`}
           >
