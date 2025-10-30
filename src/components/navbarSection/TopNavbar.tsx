@@ -38,13 +38,9 @@ export default function TopNavbar() {
         <Link href="/aboutUs" className="hover:text-yellow-600 transition">
           About
         </Link>
-
-        {/* Services Dropdown */}
-        <div className="relative group">
-          <button className="hover:text-yellow-600 transition flex items-center gap-1 focus:outline-none">
-            Services <span className="text-xs">▼</span>
-          </button>
-        </div>
+        <Link href="/services" className="hover:text-yellow-600 transition">
+          Services
+        </Link>
 
         <Link href="/blogs" className="hover:text-yellow-600 transition">
           Blogs
