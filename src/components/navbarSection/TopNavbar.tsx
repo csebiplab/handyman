@@ -48,9 +48,6 @@ export default function TopNavbar() {
         <Link href="/gallery" className="hover:text-yellow-600 transition">
           Gallery
         </Link>
-        <Link href="/projects" className="hover:text-yellow-600 transition">
-          Projects
-        </Link>
         <Link href="/contactUs" className="hover:text-yellow-600 transition">
           Contact
         </Link>
