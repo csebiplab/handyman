@@ -31,7 +31,7 @@ export default function CenterNavbar() {
     { title: "Drywall & Finishing", href: "/services/drywall-finishing" },
     { title: "Flooring Installation", href: "/services/flooring-installation" },
     { title: "Painting", href: "/services/painting" },
-    { title: "Plumbing", href: "/services/plumbing" },
+    { title: "Plumbing", href: "/services/plumbing-minor-work" },
     {
       title: "Electrical (Minor Work)",
       href: "/services/electrical-minor-work",
