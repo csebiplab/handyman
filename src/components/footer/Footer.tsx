@@ -35,9 +35,9 @@ const Footer = () => {
       label: "Facebook",
     },
     {
-      href: "https://pinterest.com",
+      href: "https://www.homestars.com/profile/torontohandymans",
       icon: "/assets/navbarIconHomestars.png",
-      label: "Pinterest",
+      label: "Homestars",
     },
     {
       href: "https://maps.google.com",

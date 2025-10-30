@@ -57,14 +57,14 @@ const OurPromise: React.FC = () => {
       </div>
 
       {/* Promise Text Section */}
-      <div className="bg-gray-100 text-center md:text-left px-6 md:px-16 py-10 md:py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+      <div className="bg-gray-100 px-6 md:px-16 py-10 md:py-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 max-w-7xl mx-auto">
           {promises.map((promise, index) => (
             <div
               key={index}
-              className="flex flex-col items-center md:items-start text-gray-800"
+              className="flex flex-col items-start text-gray-800"
             >
-              <h3 className="font-semibold text-xl mb-3 text-gray-900">
+              <h3 className="font-bold text-xl mb-3 text-gray-900">
                 {promise.title}
               </h3>
               <p className="text-gray-700 text-base leading-relaxed">
