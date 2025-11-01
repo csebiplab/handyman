@@ -133,7 +133,8 @@ const GetInTouchModal = ({
   const modalContent = (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm">
       <div
-        className="relative bg-white rounded-[30px] w-[65vw] max-w-5xl max-h-[90vh] mx-4 shadow-2xl animate-fadeIn overflow-y-auto"
+        className="relative bg-white rounded-[30px] w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] 2xl:w-[60%]
+            max-w-5xl max-h-[90vh] mx-4 shadow-2xl animate-fadeIn overflow-y-auto"
       >
         {/* Close button */}
         <button

@@ -56,7 +56,11 @@ const GetInTouchModal: React.FC<GetInTouchModalProps> = ({
       {/* Modal Container */}
       <div className="fixed inset-0 flex items-center justify-center z-[9999] px-4">
         <div
-          className="relative bg-white rounded-lg shadow-2xl w-[65vw] max-w-5xl max-h-[90vh] overflow-y-auto animate-fadeIn"
+          className="
+            relative bg-white rounded-lg shadow-2xl 
+            w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] 2xl:w-[60%]
+            max-w-5xl max-h-[90vh] overflow-y-auto animate-fadeIn
+          "
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
         >
           {/* Close Button */}
