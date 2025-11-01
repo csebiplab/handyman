@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { ImCross } from "react-icons/im";
@@ -23,7 +23,7 @@ const fields = [
     validation: {
       required: "Your email is required",
       pattern: {
-        value: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/,
+        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
         message: "Invalid email format",
       },
     },
@@ -79,6 +79,20 @@ const GetInTouchModal = ({
     reset,
     formState: { errors },
   } = useForm();
+
+  // ✅ Freeze background scroll when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup when component unmounts
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   const onSubmit = (data: any) => {
     mailSendHandler({ data, reset, setIsLoading, toast, onClose });

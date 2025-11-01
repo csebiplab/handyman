@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { ImCross } from "react-icons/im";
 import { toast } from "react-toastify";
@@ -27,6 +27,20 @@ const GetInTouchModal: React.FC<GetInTouchModalProps> = ({
 }) => {
   const { register, handleSubmit, reset } = useForm<FormInputs>();
   const [loading, setLoading] = useState(false);
+
+  // 🔒 Prevent background scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup when unmounted or modal closes
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen]);
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
     setLoading(true);
