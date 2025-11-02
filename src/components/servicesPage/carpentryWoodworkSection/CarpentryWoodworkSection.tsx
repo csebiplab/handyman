@@ -89,9 +89,9 @@ export default function CarpentryWoodworkSection() {
   ];
 
   return (
-    <section className="py-8 md:py-12 2xl:py-16 grid lg:grid-cols-7 gap-6">
+    <section className="py-8 md:py-12 2xl:py-16 grid grid-cols-1 lg:grid-cols-7 lg:gap-6">
       {/* Left and Center Content */}
-      <div className="lg:col-span-5 bg-white overflow-hidden">
+      <div className="lg:col-span-5 bg-white overflow-hidden order-2 lg:order-1">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             Our Carpentry & Woodwork Services
@@ -152,7 +152,7 @@ export default function CarpentryWoodworkSection() {
       </div>
 
       {/* Right Sidebar */}
-      <aside className="space-y-6 col-span-2">
+      <aside className="space-y-6 col-span-2 order-1 lg:order-2 mb-6 lg:mb-0">
         {/* Join Section */}
         <div className="relative rounded-2xl shadow-md text-center overflow-hidden">
           <Image
