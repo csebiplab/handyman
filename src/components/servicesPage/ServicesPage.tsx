@@ -6,6 +6,7 @@ import OurClientSaying from "../homePage/ourClientSaying/OurClientSaying";
 import OurServiceAreas from "../galleryPage/OurServiceAreas/OurServiceAreas";
 import Map from "../common/Map";
 import GetInTouch from "../homePage/getInTouch/GetInTouch";
+import PastProjectsGallery from "./pastProjectsGallery/PastProjectsGallery";
 
 const ServicesPage: React.FC = () => {
   return (
@@ -16,6 +17,9 @@ const ServicesPage: React.FC = () => {
         </section>
         <section>
           <CarpentryWoodworkSection />
+        </section>
+        <section>
+          <PastProjectsGallery />
         </section>
         <section>
           <ReadyToWorkSection />
