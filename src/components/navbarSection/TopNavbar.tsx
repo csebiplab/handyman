@@ -22,6 +22,15 @@ const icons = [
   },
 ];
 
+// --- Center Navigation Data ---
+const navLinks = [
+  { label: "About", href: "/aboutUs" },
+  { label: "Services", href: "/services" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact", href: "/contactUs" },
+];
+
 export default function TopNavbar() {
   return (
     <div className="bg-white border-b text-sm text-gray-900 flex items-center justify-between p-x-192 py-2">
@@ -35,22 +44,15 @@ export default function TopNavbar() {
 
       {/* Center Navigation */}
       <nav className="hidden lg:flex flex-grow justify-end md:gap-5 lg:gap-16 3xl:gap-20 text-gray-800 font-medium mr-8 relative">
-        <Link href="/aboutUs" className="hover:text-yellow-600 transition">
-          About
-        </Link>
-        <Link href="/services" className="hover:text-yellow-600 transition">
-          Services
-        </Link>
-
-        <Link href="/blogs" className="hover:text-yellow-600 transition">
-          Blogs
-        </Link>
-        <Link href="/gallery" className="hover:text-yellow-600 transition">
-          Gallery
-        </Link>
-        <Link href="/contactUs" className="hover:text-yellow-600 transition">
-          Contact
-        </Link>
+        {navLinks.map((link, index) => (
+          <Link
+            key={index}
+            href={link.href}
+            className="hover:text-yellow-600 transition"
+          >
+            {link.label}
+          </Link>
+        ))}
       </nav>
 
       {/* Right Icons (Dynamic) */}
