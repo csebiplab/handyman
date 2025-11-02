@@ -8,7 +8,7 @@ export default function ReadyToWorkSection() {
       {/* Content Container */}
       <div className="container mx-auto px-4">
         {/* Heading */}
-        <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
           Ready to work together?
         </h2>
         <svg
@@ -26,7 +26,7 @@ export default function ReadyToWorkSection() {
         </svg>
 
         {/* Subtext */}
-        <p className="text-gray-600 mb-8">
+        <p className="text-gray-800 mb-8">
           We would be happy to hear from you if you have a project in mind and
           are seeking a reliable construction partner for the project.
         </p>
