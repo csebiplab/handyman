@@ -22,7 +22,6 @@ export default function CenterNavbar() {
     { title: "Services", href: "/services" },
     { title: "Gallery", href: "/gallery" },
     { title: "Blog", href: "/blogs" },
-    { title: "Projects", href: "/projects" },
     { title: "Contact", href: "/contactUs" },
   ];
 
