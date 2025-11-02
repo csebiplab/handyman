@@ -10,6 +10,7 @@ export default function CarpentryWoodworkSection() {
 
   const onOpen = () => setIsOpen(true);
   const onModalClose = () => setIsOpen(false);
+
   const socialLinks = [
     {
       icon: "/assets/navbarIconFacebook.png",
@@ -60,10 +61,37 @@ export default function CarpentryWoodworkSection() {
     },
   ];
 
+  const chooseUs = [
+    {
+      title: "• Custom Designs:",
+      subtitle: "Personalized, Tailored, Unique",
+      description:
+        "Each project is designed with you in mind. We listen to your ideas and bring them to life, delivering woodwork solutions that are personalized and tailored to your needs.",
+    },
+    {
+      title: "• Durable Construction:",
+      subtitle: "Strong, Reliable, Lasting",
+      description:
+        "We use the highest quality materials and construction methods to ensure your woodwork projects stand the test of time. Durability is key in everything we build, from custom furniture to structural frames.",
+    },
+    {
+      title: "• Expert Craftsmanship:",
+      subtitle: "Skilled, Detailed, Precise",
+      description:
+        "Our carpenters bring years of experience to each project, ensuring the finest craftsmanship in every cut, joint, and finish. We focus on the finest details to guarantee a flawless outcome.",
+    },
+    {
+      title: "• Affordable, Transparent, Fair",
+      subtitle: "",
+      description:
+        "We believe in offering high-quality carpentry services at competitive prices. With transparent pricing and no hidden fees, you can trust that you’re getting great value.",
+    },
+  ];
+
   return (
-    <section className="py-8 md:py-12 grid lg:grid-cols-7 gap-6">
+    <section className="py-8 md:py-12 2xl:py-16 grid lg:grid-cols-7 gap-6">
       {/* Left and Center Content */}
-      <div className="lg:col-span-5 bg-white rounded-2xl shadow-md overflow-hidden">
+      <div className="lg:col-span-5 bg-white overflow-hidden">
         <div>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
             Our Carpentry & Woodwork Services
@@ -87,13 +115,46 @@ export default function CarpentryWoodworkSection() {
             ))}
           </ul>
         </div>
+
+        {/* Why Choose Us Section */}
+        <div className="px-5 mt-10 text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            Why Choose Us?
+          </h2>
+
+          <ul className="space-y-6">
+            {chooseUs.map((item, index) => (
+              <li key={index}>
+                <p className="font-bold">
+                  {item.title}{" "}
+                  {item.subtitle && (
+                    <span className="font-semibold">{item.subtitle}</span>
+                  )}
+                </p>
+                <p className="mt-2 text-gray-700">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+
+          {/* Get Started Section */}
+          <div className="mt-10">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Get Started Today!
+            </h2>
+            <p className="text-gray-700 leading-relaxed">
+              Ready to transform your home with custom carpentry? Design, Build,
+              Enhance your space by contacting us for a free consultation. Let’s
+              turn your vision into reality with our expert carpentry and
+              woodwork services.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Right Sidebar */}
       <aside className="space-y-6 col-span-2">
         {/* Join Section */}
         <div className="relative rounded-2xl shadow-md text-center overflow-hidden">
-          {/* Background Image */}
           <Image
             src="/assets/servicesPage/carpentryWoodworkSectionJoinUsBg.png"
             alt="Join Section Background"
@@ -101,19 +162,13 @@ export default function CarpentryWoodworkSection() {
             className="object-cover"
             priority
           />
-
-          {/* Content */}
           <div className="relative px-6 py-12 z-10">
             <h4 className="text-lg md:text-2xl text-gray-800 mb-1">Handyman</h4>
             <h3 className="text-lg md:text-2xl font-bold text-gray-900 mb-4">
               Top of the Toronto
             </h3>
-
             <div className="relative border-2 border-[#DFBC00] rounded-xl py-8 px-4 mb-4 bg-gradient-to-br from-white to-blue-50 flex flex-col items-center justify-center text-center shadow-sm">
-              {/* Circular Placeholder (optional image/icon spot) */}
               <div className="w-12 h-12 md:w-18 md:h-18 bg-gradient-to-b from-gray-800 to-gray-400 rounded-full mb-4" />
-
-              {/* Text */}
               <p className="text-gray-800 text-lg md:text-2xl font-medium">
                 Take a Look
               </p>
@@ -121,7 +176,6 @@ export default function CarpentryWoodworkSection() {
                 Join with Us
               </p>
             </div>
-
             <button
               onClick={onOpen}
               className="bg-black hover:bg-gray-900 cursor-pointer text-white py-2 px-5 rounded-md text-sm font-semibold inline-block transition"
@@ -137,10 +191,7 @@ export default function CarpentryWoodworkSection() {
           <h4 className="font-semibold mb-3 flex items-center gap-2">
             <span className="text-lg">🔗</span> Social Media Links
           </h4>
-
-          {/* Divider */}
           <div className="w-full h-[1px] bg-gray-300 mb-4"></div>
-
           <div className="flex gap-4 justify-center items-center">
             {socialLinks.map((link, i) => (
               <Link
@@ -165,7 +216,6 @@ export default function CarpentryWoodworkSection() {
         {/* Services List */}
         <div className="bg-white border border-gray-300 rounded-2xl shadow-md p-5">
           <h4 className="text-lg lg:text-2xl font-bold mb-3 flex items-center gap-2">
-            {/* Next.js Image component */}
             <Image
               src="/assets/servicesPage/carpentryWoodworkSectionIcon.png"
               alt="Services Icon"
