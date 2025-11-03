@@ -8,7 +8,7 @@ export default function AboutUs() {
       {/* Full-width Background Image (hidden on small devices) */}
       <div className="absolute inset-0 hidden sm:block">
         <Image
-          src="/assets/aboutUsPage/aboutUsbg.jpg"
+          src="/assets/aboutUsPage/aboutUsBg.jpg"
           alt="Modern Kitchen"
           fill
           className="object-cover object-center brightness-100"
