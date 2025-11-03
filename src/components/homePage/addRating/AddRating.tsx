@@ -1,26 +1,36 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { FaFacebook, FaStar } from "react-icons/fa";
-import { SiGooglemaps } from "react-icons/si";
-import { TbHomeStar } from "react-icons/tb";
 
 interface RatingCardProps {
-  icon: React.ReactNode;
-  platform: string;
+  icon: React.ReactNode | string;
+  platform?: string;
   rating: number;
   reviews: number;
+  width?: number;
+  height?: number;
 }
 
-const RatingCard: React.FC<RatingCardProps> = ({ icon, platform, rating, reviews }) => {
-  return (
-    <div className="flex justify-between items-center bg-[#F4F4F4] shadow-sm rounded-2xl px-8 py-5 w-full max-w-[480px] transition-all hover:shadow-md">
-      {/* Left Section */}
-      <div className="flex items-start gap-3">
-        <div className="text-3xl">{icon}</div>
-        <div className="flex flex-col">
-          <p className="font-semibold text-gray-800">{platform}</p>
-          <div className="flex items-center gap-1 text-yellow-400 text-sm mt-1">
+const RatingCard: React.FC<RatingCardProps> = ({
+  icon,
+  platform,
+  rating,
+  reviews,
+  width,
+  height,
+}) => {
+  const renderIconSection = () => {
+    // Facebook case: icon + platform name in a row
+    if (platform === "Facebook" && typeof icon !== "string") {
+      return (
+        <div className="flex flex-col items-start">
+          <div className="flex items-center gap-2">
+            <div className="text-4xl">{icon}</div>
+            <p className="font-semibold text-gray-800 text-base">{platform}</p>
+          </div>
+          <div className="flex items-center gap-1 text-yellow-400 text-sm mt-2">
             {Array(5)
               .fill(0)
               .map((_, i) => (
@@ -28,10 +38,41 @@ const RatingCard: React.FC<RatingCardProps> = ({ icon, platform, rating, reviews
               ))}
           </div>
         </div>
-      </div>
+      );
+    }
 
-      {/* Right Section */}
-      <div className="flex flex-col items-end">
+    // Image icons (Google Maps, HomeStars)
+    if (typeof icon === "string") {
+      return (
+        <div className="flex flex-col items-start">
+          <Image
+            src={icon}
+            alt={platform || "rating-icon"}
+            width={width}
+            height={height}
+            className="object-contain"
+          />
+          <div className="flex items-center gap-1 text-yellow-400 text-sm mt-2">
+            {Array(5)
+              .fill(0)
+              .map((_, i) => (
+                <FaStar key={i} />
+              ))}
+          </div>
+        </div>
+      );
+    }
+
+    return null;
+  };
+
+  return (
+    <div className="flex justify-between items-center bg-[#F4F4F4] shadow-sm rounded-2xl px-8 py-6 w-full max-w-[480px] transition-all hover:shadow-md">
+      {/* Left: Icon & Stars */}
+      {renderIconSection()}
+
+      {/* Right: Rating Numbers */}
+      <div className="flex flex-col items-end text-right">
         <p className="font-semibold text-gray-800 text-lg">
           {rating.toFixed(1).replace(".", ",")}
         </p>
@@ -50,16 +91,18 @@ const AddRating: React.FC = () => {
       reviews: 885,
     },
     {
-      icon: <SiGooglemaps className="text-red-500" />,
-      platform: "Google Maps",
+      icon: "/assets/handymanHomePage/googleMapIcon.png",
       rating: 4.6,
       reviews: 235,
+      width: 154,
+      height: 32,
     },
     {
-      icon: <TbHomeStar className="text-green-600" />,
-      platform: "HomeStars",
+      icon: "/assets/handymanHomePage/homeStarsIcon.png",
       rating: 4.8,
       reviews: 80,
+      width: 236,
+      height: 32,
     },
   ];
 
@@ -72,6 +115,8 @@ const AddRating: React.FC = () => {
           platform={item.platform}
           rating={item.rating}
           reviews={item.reviews}
+          width={item.width}
+          height={item.height}
         />
       ))}
     </section>
