@@ -30,7 +30,7 @@ const Footer = () => {
   // ✅ Social icons as images
   const socialLinks = [
     {
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/share/1CURMHqadu/?mibextid=wwXIfr",
       icon: "/assets/navbarIconFacebook.png",
       label: "Facebook",
     },
@@ -40,7 +40,7 @@ const Footer = () => {
       label: "Homestars",
     },
     {
-      href: "https://maps.google.com",
+      href: "https://maps.app.goo.gl/1vziReSzQt4oNK5p8?g_st=ipc",
       icon: "/assets/navbarIconMap.png",
       label: "Location",
     },
@@ -118,14 +118,14 @@ const Footer = () => {
                   <Link
                     key={i}
                     href={social.href}
-                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 transition-all duration-300"
+                    className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
                     aria-label={social.label}
                   >
                     <Image
                       src={social.icon}
                       alt={social.label}
-                      width={27}
-                      height={27}
+                      width={28}
+                      height={28}
                       className="object-contain"
                     />
                   </Link>

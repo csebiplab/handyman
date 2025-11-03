@@ -22,31 +22,35 @@ const galleryImages = [
 export default function WorkGallery() {
   return (
     <section className="py-12">
-      <h2 className="text-2xl md:text-3xl font-semibold text-gray-900">
-        Gallery of Work in <span className="">Toronto Handyman</span>
-      </h2>
-      <svg
-        viewBox="0 0 200 40"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-40 h-6 mb-4"
-      >
-        <path
-          d="M0 30 Q100 10 200 30"
-          stroke="#FACC15"
-          strokeWidth="4"
-          strokeLinecap="round"
-          fill="none"
-        />
-      </svg>
+      <div className="text-center mb-8">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900">
+          Gallery of Work in <span className="">Toronto Handyman</span>
+        </h2>
+        <div className="flex justify-center">
+          <svg
+            viewBox="0 0 200 40"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-32 sm:w-40 h-5 sm:h-6 mt-2"
+          >
+            <path
+              d="M0 30 Q100 10 200 30"
+              stroke="#FACC15"
+              strokeWidth="4"
+              strokeLinecap="round"
+              fill="none"
+            />
+          </svg>
+        </div>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {galleryImages.map((img, index) => (
           <div
             key={index}
             className={`relative overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-all duration-300
               ${
                 index === 0
-                  ? "col-span-2 row-span-2 aspect-[2/2]"
+                  ? "col-span-1 sm:col-span-2 md:col-span-2 row-span-1 sm:row-span-2 aspect-[2/2]"
                   : "aspect-square"
               }`}
           >

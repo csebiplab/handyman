@@ -62,7 +62,7 @@ const OfficeInfo: React.FC = () => {
       {/* Contact Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
         {contactItems.map((item, index) => (
-          <div key={index} className="flex flex-col items-center md:items-start">
+          <div key={index} className="flex flex-col items-start">
             <div className="flex items-center justify-center md:justify-start gap-3">
               {item.icon}
               <div className="text-left">
