@@ -45,7 +45,7 @@ export default function GetInTouch() {
                   <Mail className="text-yellow-500 mt-[2px]" size={18} />
                   <div>
                     <p className="text-gray-800 text-sm font-medium">Email</p>
-                    <p className="text-gray-700 text-lg font-semibold">info@torontohandymans.com</p>
+                    <p className="text-gray-700 text-base md:text-lg font-semibold">info@torontohandymans.com</p>
                   </div>
                 </div>
 

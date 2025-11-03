@@ -4,6 +4,7 @@ import Navbar from "@/components/navbarSection/Navbar";
 import Footer from "@/components/footer/Footer";
 import { Montserrat } from "next/font/google";
 import BottomStickyContact from "@/components/common/bottomStickyContact/BottomStickyContact";
+import { ToastContainer } from "react-toastify";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -26,9 +27,10 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <div id="modal-root">
+        <div id="modal-root" className="pt-18 md:pt-19">
           <BottomStickyContact />
         </div>
+        <ToastContainer />
       </body>
     </html>
   );

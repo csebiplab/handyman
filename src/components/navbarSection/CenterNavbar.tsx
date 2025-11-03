@@ -3,17 +3,48 @@
 import Image from "next/image";
 import { Phone, Menu } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GetAnEstimateButtonBgBlack from "../common/form/GetAnEstimateButtonBgBlack";
+import GetInTouchModal from "../common/form/GetInTouchModal";
 
 export default function CenterNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Arrays for menu items
+  const onOpen = () => setIsOpen(true);
+  const onModalClose = () => setIsOpen(false);
+
+  // ✅ Disable background scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  // ✅ Icons with links
   const icons = [
-    "/assets/navbarIconFacebook.png",
-    "/assets/navbarIconHomestars.png",
-    "/assets/navbarIconMap.png",
+    {
+      src: "/assets/navbarIconFacebook.png",
+      href: "https://www.facebook.com/share/1CURMHqadu/?mibextid=wwXIfr",
+      alt: "Facebook",
+    },
+    {
+      src: "/assets/navbarIconHomestars.png",
+      href: "https://www.homestars.com/profile/torontohandymans",
+      alt: "HomeStars",
+    },
+    {
+      src: "/assets/navbarIconMap.png",
+      href: "https://maps.app.goo.gl/1vziReSzQt4oNK5p8?g_st=ipc",
+      alt: "Google Maps",
+    },
   ];
 
   const mainMenu = [
@@ -177,12 +208,14 @@ export default function CenterNavbar() {
             {icons.map((icon, index) => (
               <Link
                 key={index}
-                href="#"
+                href={icon.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity duration-200"
               >
                 <Image
-                  src={icon}
-                  alt={`icon-${index}`}
+                  src={icon.src}
+                  alt={icon.alt}
                   width={28}
                   height={28}
                   className="object-contain"
@@ -192,9 +225,16 @@ export default function CenterNavbar() {
           </div>
 
           <div className="w-[90%]">
-            <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded-md transition">
+            <button
+              className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 rounded-md transition"
+              onClick={(e) => {
+                e.stopPropagation(); // 🛑 Prevent click from bubbling
+                onOpen(); // ✅ Open the modal
+              }}
+            >
               GET AN ESTIMATE
             </button>
+            <GetInTouchModal isOpen={isOpen} onClose={onModalClose} />
           </div>
         </div>
       </div>
