@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "./bannerSection/Banner";
+import AboutTorontoHandymanSection from "./aboutTorontoHandymanSection/AboutTorontoHandymanSection";
 
 const BlogsPage: React.FC = () => {
   return (
@@ -7,6 +8,9 @@ const BlogsPage: React.FC = () => {
       <div className="m-x-192">
         <section>
           <Banner />
+        </section>
+        <section>
+          <AboutTorontoHandymanSection />
         </section>
       </div>
     </main>
