@@ -1,0 +1,70 @@
+name: Deploy Handyman
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Set up SSH key
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      # Add the remote server to known hosts
+      - name: Add server to known hosts
+        run: |
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      # Debug SSH connection
+      - name: Debug SSH Connection
+        run: |
+          ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@${{ secrets.SSH_HOST }}
+
+      # Deploy project to server
+      - name: Deploy to server
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@${{ secrets.SSH_HOST }} << 'EOF'
+            # Navigate to the project directory
+            cd /var/www/handyman
+
+            # Overwrite pre-changes for package.json
+            # echo "Overwritting the pre packages"
+            # git add .
+            # git commit -m "Commit Pre Packages"
+
+            # Reset repository and fetch latest code
+            echo "Resetting repository and pulling latest code..."
+            # git reset --hard
+            # git clean -df
+            git pull origin main --no-rebase || { echo 'Git pull failed!'; exit 1; }
+
+            # Clear cache and install all dependencies
+            echo "Cleaning yarn cache and installing dependencies..."
+            # rm -rf node_modules package-lock.json
+            # yarn cache clean --force
+            yarn install || { echo 'yarn install failed!'; exit 1; }
+
+            # Build the project
+            echo "Building project..."
+            yarn build || { echo 'Build failed!'; exit 1; }
+
+            # Restart the PM2 process by ID and fallback to name
+            echo "Restarting PM2 process using ID first..."
+            if pm2 restart 14 --update-env; then
+              echo "PM2 process restarted successfully using ID."
+            else
+              echo "PM2 restart failed using ID. Falling back to process name..."
+              pm2 restart handyman --update-env || { echo 'PM2 restart failed with both ID and name!'; exit 1; }
+            fi
+          EOF
