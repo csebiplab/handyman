@@ -1,4 +1,4 @@
-import { toast } from 'react-toastify';
+// import { toast } from "react-toastify";
 
 // Define the form data interface
 // interface FormData {
@@ -11,17 +11,17 @@ import { toast } from 'react-toastify';
 //   timeframe: string;
 // }
 
-// Define the function parameters interface
-interface MailSendHandlerParams {
-  data: any;
-  reset: () => void;
-  setIsLoading: (loading: boolean) => void;
-  toast: {
-    error: (message: string) => void;
-    success: (message: string) => void;
-  };
-  onClose?: () => void;
-}
+// // Define the function parameters interface
+// interface MailSendHandlerParams {
+//   data: any;
+//   reset: () => void;
+//   setIsLoading: (loading: boolean) => void;
+//   toast: {
+//     error: (message: string) => void;
+//     success: (message: string) => void;
+//   };
+//   onClose?: () => void;
+// }
 
 export const mailSendHandler = async ({
   data,
@@ -47,9 +47,9 @@ export const mailSendHandler = async ({
   const payload = {
     projectFor:
       process.env.NODE_ENV === "production"
-        ? "mohammad.oliullah25@gmail.com"
+        ? "info@torontohandymans.com"
         : "bayzidweb04@gmail.com",
-    brand: "Easy Pools",
+    brand: "Handyman",
     name: data?.name,
     email: data?.email,
     message: emailTemplate,
