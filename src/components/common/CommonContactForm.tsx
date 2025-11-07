@@ -186,8 +186,21 @@ export default function CommonContactForm() {
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Row 1 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {contactFormFields.row1.map(renderField)}
+        <div className="grid grid-cols-1 md:grid-cols-2 4xl:grid-cols-3 gap-4">
+          {/* First input */}
+          <div className="col-span-1">
+            {renderField(contactFormFields.row1[0])}
+          </div>
+
+          {/* Second input */}
+          <div className="col-span-1">
+            {renderField(contactFormFields.row1[1])}
+          </div>
+
+          {/* Third input */}
+          <div className="md:col-span-2 4xl:col-span-1">
+            {renderField(contactFormFields.row1[2])}
+          </div>
         </div>
 
         {/* Row 2 */}

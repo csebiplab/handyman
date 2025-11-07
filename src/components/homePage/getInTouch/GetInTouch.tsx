@@ -25,12 +25,12 @@ export default function GetInTouch() {
       <div className="bg-[#F4F4F4] rounded-lg shadow-lg overflow-hidden p-6">
         <div className="grid grid-cols-1 lg:grid-cols-10 items-start gap-6">
           {/* Left Side - Contact Form (70%) */}
-          <div className="lg:col-span-7 w-full">
+          <div className="lg:col-span-6 2xl:col-span-7 w-full">
             <CommonContactForm />
           </div>
 
           {/* Right Side - Contact Information (30%) */}
-          <div className="lg:col-span-3 w-full">
+          <div className="lg:col-span-4 2xl:col-span-3 w-full">
             <div className="bg-white shadow-md rounded-xl p-6 h-full">
               <h2 className="text-2xl font-semibold text-gray-800">
                 Get an Estimate
@@ -45,7 +45,7 @@ export default function GetInTouch() {
                   <Mail className="text-yellow-500 mt-[2px]" size={18} />
                   <div>
                     <p className="text-gray-800 text-sm font-medium">Email</p>
-                    <p className="text-gray-700 text-base md:text-lg font-semibold">info@torontohandymans.com</p>
+                    <p className="text-gray-700 text-sm 3xl:text-lg font-semibold break-words">info@torontohandymans.com</p>
                   </div>
                 </div>
 
@@ -54,7 +54,7 @@ export default function GetInTouch() {
                   <MapPin className="text-yellow-500 mt-[2px]" size={18} />
                   <div>
                     <p className="text-gray-800 text-sm font-medium">Address</p>
-                    <p className="text-gray-700 text-lg font-semibold">
+                    <p className="text-gray-700 text-sm 3xl:text-lg font-semibold">
                       224 Millwood Rd, Toronto, Canada
                     </p>
                   </div>
