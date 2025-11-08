@@ -71,15 +71,15 @@ export default function CenterNavbar() {
   ];
 
   return (
-    <header className="bg-white border-b border-gray-200 py-2 p-x-192 flex justify-between items-center relative">
+    <header className="bg-white border-b border-gray-200 py-1 p-x-192 flex justify-between items-center relative">
       {/* Left Section */}
       <div className="flex items-center gap-2 sm:gap-4">
         <Link
           href="/"
-          className="relative w-[60px] h-[54px] sm:w-[84px] sm:h-[74px]"
+          className="relative w-[60px] h-[60px] sm:w-[84px] sm:h-[84px]"
         >
           <Image
-            src="/assets/handymanHomePage/centerNavbarLogo.png"
+            src="/assets/handymanLogo.png"
             alt="Toronto Handyman Logo"
             fill
             className="object-contain"
@@ -146,7 +146,7 @@ export default function CenterNavbar() {
           <div className="flex items-center gap-3 p-4 mt-10 border-b border-gray-200">
             <div className="relative w-[70px] h-[65px]">
               <Image
-                src="/assets/handymanHomePage/centerNavbarLogo.png"
+                src="/assets/handymanLogo.png"
                 alt="Toronto Handyman Logo"
                 fill
                 className="object-contain"

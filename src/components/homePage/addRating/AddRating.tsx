@@ -67,7 +67,7 @@ const RatingCard: React.FC<RatingCardProps> = ({
   };
 
   return (
-    <div className="flex justify-between items-center bg-[#F4F4F4] shadow-sm rounded-2xl px-8 py-6 w-full max-w-[480px] transition-all hover:shadow-md">
+    <div className="flex justify-between items-center bg-[#F4F4F4] shadow-sm rounded-2xl px-8 py-6 lg:py-2 2xl:py-6 w-full transition-all hover:shadow-md">
       {/* Left: Icon & Stars */}
       {renderIconSection()}
 
@@ -107,18 +107,20 @@ const AddRating: React.FC = () => {
   ];
 
   return (
-    <section className="flex flex-wrap justify-center items-center gap-8 w-full py-10 bg-transparent">
-      {ratings.map((item, index) => (
-        <RatingCard
-          key={index}
-          icon={item.icon}
-          platform={item.platform}
-          rating={item.rating}
-          reviews={item.reviews}
-          width={item.width}
-          height={item.height}
-        />
-      ))}
+    <section className="w-full py-8 3xl:py-10 bg-transparent">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 justify-items-center">
+        {ratings.map((item, index) => (
+          <RatingCard
+            key={index}
+            icon={item.icon}
+            platform={item.platform}
+            rating={item.rating}
+            reviews={item.reviews}
+            width={item.width}
+            height={item.height}
+          />
+        ))}
+      </div>
     </section>
   );
 };
