@@ -49,7 +49,6 @@ export default function WhyChooseUs() {
       if (isPlaying) {
         video.pause();
       } else {
-        // some browsers need muted + play() returned promise handling
         await video.play();
       }
       setIsPlaying(!isPlaying);
@@ -59,9 +58,9 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section className="w-full mt-10 bg-gray-50 rounded-2xl overflow-hidden flex flex-col lg:flex-row">
+    <section className="w-full mt-10 bg-gray-50 rounded-2xl overflow-hidden grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4">
       {/* Left Video Section (20%) */}
-      <div className="relative order-2 sm:order-1 w-full lg:w-[20%] h-64 lg:h-auto overflow-hidden">
+      <div className="relative col-span-1 order-2 sm:order-1 w-full h-64 lg:h-auto overflow-hidden">
         <video
           ref={videoRef}
           src="/Videos/WhatsApp Video 2025-09-20 at 5.50.53 PM.mp4"
@@ -69,10 +68,9 @@ export default function WhyChooseUs() {
           preload="auto"
           muted
           playsInline
-          // add controls={false} to make sure no default controls appear
         />
 
-        {/* Play/Pause Button Overlay */}
+        {/* Play/Pause Overlay */}
         <div className="absolute inset-0 flex items-center justify-center bg-black/20">
           <button
             onClick={handlePlayPause}
@@ -88,7 +86,7 @@ export default function WhyChooseUs() {
       </div>
 
       {/* Right Content (80%) */}
-      <div className="w-full order-1 sm:order-2 lg:w-[80%] p-6 md:p-10 md:pr-[192px] flex flex-col justify-center">
+      <div className="w-full md:col-span-2 2xl:col-span-3 order-1 sm:order-2 p-6 md:p-10 md:pr-6 lg:pr-13 xl:pr-[100px] 3xl:pr-[120px] 4xl:pr-[192px] flex flex-col justify-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-8">
           Why Choose Us
           <svg
@@ -107,14 +105,14 @@ export default function WhyChooseUs() {
         </h2>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5">
           {features.map((item, idx) => (
             <div
               key={idx}
-              className="flex flex-col sm:flex-row-reverse items-center sm:items-start text-center sm:text-left p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all"
+              className="grid grid-cols-[auto_1fr] sm:grid-cols-[1fr_auto] items-center sm:items-start text-center sm:text-left p-5 bg-white rounded-xl shadow-sm hover:shadow-md transition-all"
             >
               {/* Icon */}
-              <div className="relative w-14 h-14 mb-3 sm:mb-0 sm:ml-4 flex-shrink-0">
+              <div className="relative w-14 h-14 mx-auto sm:mx-0 sm:ml-4 mb-3 sm:mb-0">
                 <Image
                   src={item.icon}
                   alt={item.title}
@@ -123,7 +121,7 @@ export default function WhyChooseUs() {
                 />
               </div>
 
-              {/* Text Section */}
+              {/* Text */}
               <div>
                 <h3 className="font-bold text-lg text-[#DFBC00] mb-1">
                   {item.title}
