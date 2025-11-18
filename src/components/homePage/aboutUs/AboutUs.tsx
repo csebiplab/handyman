@@ -6,7 +6,7 @@ export default function AboutUs() {
   return (
     <section className="relative w-full overflow-hidden rounded-2xl bg-gray-50">
       {/* Full-width Background Image (hidden on small devices) */}
-      <div className="absolute inset-0 hidden sm:block">
+      <div className="absolute inset-0 hidden md:block">
         <Image
           src="/assets/handymanHomePage/aboutUsBg.jpg"
           alt="Modern Kitchen"
