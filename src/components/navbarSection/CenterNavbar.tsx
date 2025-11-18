@@ -98,7 +98,7 @@ export default function CenterNavbar() {
       {/* Right Section */}
       <div className="flex items-center gap-3 sm:gap-6">
         <a
-          href="tel:6473269185"
+          href="tel:(647) 326-9185"
           className="hidden sm:flex items-center gap-2 font-bold text-lg hover:text-yellow-600 transition"
         >
           <Phone className="w-5 h-5 text-yellow-500" />

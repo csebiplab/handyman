@@ -34,7 +34,7 @@ export default function ReadyToWorkSection() {
         {/* Buttons */}
         <div className="flex flex-row flex-wrap justify-center gap-3 sm:gap-4 md:gap-10 mb-3">
           <Link
-            href="tel:+16476834612"
+            href="tel:(647) 326-9185"
             className="relative font-semibold text-sm px-8 py-2 text-white uppercase tracking-wide transition-all duration-500 group overflow-hidden flex items-center justify-center"
             style={{
               backgroundColor: "#DDBE00",

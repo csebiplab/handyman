@@ -64,9 +64,12 @@ const Footer = () => {
 
         {/* Top content */}
         <div className="p-x-192 py-12 md:py-16">
-          <div className="inline-flex items-center bg-white text-black font-semibold rounded-md px-5 py-3 mb-5 hover:bg-yellow-500 hover:text-white transition-all duration-300 cursor-pointer">
+          <a
+            href="tel:6473269185"
+            className="inline-flex items-center bg-white text-black font-semibold rounded-md px-5 py-3 mb-5 hover:bg-yellow-500 hover:text-white transition-all duration-300 cursor-pointer"
+          >
             <FaPhoneAlt className="mr-2" /> (647) 326-9185
-          </div>
+          </a>
 
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Column 1: Links */}
@@ -139,10 +142,16 @@ const Footer = () => {
         <div className="block sm:hidden pb-5 text-center text-sm text-gray-300">
           <p className="mb-3">© All Copyright 2025 by Handyman</p>
           <div className="flex justify-center gap-4">
-            <Link href="/terms" className="hover:text-yellow-500 transition-all">
+            <Link
+              href="/terms"
+              className="hover:text-yellow-500 transition-all"
+            >
               Terms & Condition
             </Link>
-            <Link href="/privacy" className="hover:text-yellow-500 transition-all">
+            <Link
+              href="/privacy"
+              className="hover:text-yellow-500 transition-all"
+            >
               Privacy Policy
             </Link>
           </div>
@@ -155,9 +164,7 @@ const Footer = () => {
       {/* 🔹 Bottom Section */}
       <div className="p-x-192 py-1 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-400 bg-black">
         <div className="flex items-center space-x-2 mb-3 md:mb-0">
-          <p className="font-bold text-white">
-            WEBSITE DESIGN AND SEO BY :-
-          </p>
+          <p className="font-bold text-white">WEBSITE DESIGN AND SEO BY :-</p>
           <Image
             src="/assets/handymanHomePage/gokundulogo.png"
             alt="GoKundu Logo"
@@ -167,15 +174,16 @@ const Footer = () => {
           />
         </div>
 
-        <p className="hidden md:block">
-          © All Copyright 2025 by Handyman
-        </p>
+        <p className="hidden md:block">© All Copyright 2025 by Handyman</p>
 
         <div className="hidden md:flex gap-4">
           <Link href="/terms" className="hover:text-yellow-500 transition-all">
             Terms & Condition
           </Link>
-          <Link href="/privacy" className="hover:text-yellow-500 transition-all">
+          <Link
+            href="/privacy"
+            className="hover:text-yellow-500 transition-all"
+          >
             Privacy Policy
           </Link>
         </div>

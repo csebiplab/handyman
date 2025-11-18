@@ -21,7 +21,7 @@ const BottomStickyContact = () => {
         <GetInTouchModal isOpen={isOpen} onClose={onModalClose} />
 
         <a
-          href="tel:(647) 449 - 9512"
+          href="tel:(647) 326-9185"
           className="bg-[#ffffff] text-[11px] flex justify-center items-center md:text-lg font-bold px-1 md:px-4 py-3 w-full md:w-auto text-center min-h-[48px] min-w-[48px]"
         >
           Call - (647) 326-9185
