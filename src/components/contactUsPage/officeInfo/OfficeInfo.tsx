@@ -34,7 +34,7 @@ const OfficeInfo: React.FC = () => {
       icon: <Phone className="text-yellow-500 w-6 h-6 flex-shrink-0" />,
       label: "Telephone",
       value: "(647) 326-9185",
-      href: "tel:+16473269185",
+      href: "tel:(647) 326-9185",
       isLink: true,
       textColor: "text-gray-900",
     },
