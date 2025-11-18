@@ -54,18 +54,22 @@ const maps = [
     location: "Etobicoke",
   },
   {
-    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.5428818088157!2d-79.55631162402474!3d43.64685177216179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3d2999071e79%3A0x8a516a1cc7f61a0d!2sEtobicoke%2C%20Toronto%2C%20ON!5e0!3m2!1sen!2sca!4v1711192951115!5m2!1sen!2sca",
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d226635.40281346606!2d-79.73074876561878!3d43.83696658264317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b268883243a77%3A0xdd95317585aa054b!2sVaughan%2C%20ON%2C%20Canada!5e1!3m2!1sen!2sbd!4v1762603898756!5m2!1sen!2sbd",
     location: "Vaughan",
+  },
+  {
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114179.49570958149!2d-79.99580607670839!3d43.38127441551199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b63d2965d93b7%3A0xa44a27764c2b554f!2sBurlington%2C%20ON%2C%20Canada!5e1!3m2!1sen!2sbd!4v1762604039857!5m2!1sen!2sbd",
+    location: "Burlington",
+  },
+  {
+    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114053.67766223439!2d-79.70678173851367!3d43.448041497457666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b5b8b8f729979%3A0x5037b28c7231bd0!2sOakville%2C%20ON%2C%20Canada!5e1!3m2!1sen!2sbd!4v1762604139835!5m2!1sen!2sbd",
+    location: "Oakville",
   },
 ];
 
 const OurServiceAreas = ({ classNames }: { classNames?: any }) => {
   return (
-    <div
-      className={`${
-        classNames ? classNames?.bg : ""
-      } container pb-10 mb-5`}
-    >
+    <div className={`${classNames ? classNames?.bg : ""} container pb-10 mb-5`}>
       <div
         className={`${
           classNames ? classNames?.pdy : "2xl:py-[55px] py-[30px]"
@@ -84,7 +88,7 @@ const OurServiceAreas = ({ classNames }: { classNames?: any }) => {
 
         {/* ======= Map Cards ======= */}
         <Swiper
-          modules={[ Autoplay]}
+          modules={[Autoplay]}
           loop={true}
           autoplay={{
             delay: 3000,
